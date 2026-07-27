@@ -67,7 +67,6 @@
         }
         .field-group textarea { min-height: 120px; line-height: 1.8; }
 
-        /* ===== خانة الأدمن باسورد ===== */
         .admin-pass-box {
             background: rgba(255, 220, 100, 0.12);
             border: 2.5px dashed rgba(212, 86, 122, 0.35);
@@ -90,9 +89,7 @@
             outline: none; border-color: #D4567A; background: white;
             box-shadow: 0 5px 20px rgba(212, 86, 122, 0.2);
         }
-        .admin-pass-note {
-            font-size: 0.8em; color: #A8677E; margin-top: 7px;
-        }
+        .admin-pass-note { font-size: 0.8em; color: #A8677E; margin-top: 7px; }
 
         .media-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px; }
         .media-item { display: flex; gap: 10px; align-items: center; }
@@ -151,61 +148,39 @@
         }
         .save-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(234, 184, 167, 0.7); }
 
-        .success-msg {
-            background: rgba(100, 200, 100, 0.1); border: 2px solid rgba(100, 200, 100, 0.3);
-            color: #006600; padding: 15px; border-radius: 12px;
-            text-align: center; font-size: 1em; margin-bottom: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 { font-size: 1.8em; }
-            .card { padding: 25px 20px; }
-        }
-
-        /* ===== نظام المساعدة البصرية ===== */
-        .label-row {
-            display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
-        }
+        .label-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
         .label-row label { margin-bottom: 0 !important; }
 
         .help-btn {
             display: inline-flex; align-items: center; justify-content: center;
-            width: 22px; height: 22px;
-            background: linear-gradient(135deg, #FFB3C6, #FF69B4);
-            border: none; border-radius: 50%; color: white;
-            font-size: 0.75em; font-weight: 700; cursor: pointer;
-            transition: all 0.2s; flex-shrink: 0; line-height: 1;
-            font-family: Arial, sans-serif;
+            width: 22px; height: 22px; background: linear-gradient(135deg, #FFB3C6, #FF69B4);
+            border: none; border-radius: 50%; color: white; font-size: 0.75em; font-weight: 700;
+            cursor: pointer; transition: all 0.2s; flex-shrink: 0; line-height: 1; font-family: Arial, sans-serif;
         }
         .help-btn:hover { transform: scale(1.15); box-shadow: 0 3px 10px rgba(255, 105, 180, 0.4); }
 
         .preview-overlay {
-            display: none; position: fixed; inset: 0;
-            background: rgba(0,0,0,0.55); z-index: 9999;
-            align-items: center; justify-content: center;
-            padding: 20px; backdrop-filter: blur(4px);
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 9999;
+            align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px);
         }
         .preview-overlay.active { display: flex; }
 
         .preview-modal {
-            background: white; border-radius: 20px; padding: 25px;
-            max-width: 520px; width: 100%;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-            position: relative; animation: modalPop 0.25s ease;
+            background: white; border-radius: 20px; padding: 25px; max-width: 520px; width: 100%;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.25); position: relative; animation: modalPop 0.25s ease;
         }
         @keyframes modalPop {
             from { transform: scale(0.88); opacity: 0; }
-            to   { transform: scale(1);    opacity: 1; }
+            to   { transform: scale(1); opacity: 1; }
         }
         .preview-modal h3 { color: #D4567A; font-size: 1.1em; margin-bottom: 12px; font-weight: 700; }
         .preview-modal p { color: #888; font-size: 0.9em; margin-bottom: 15px; line-height: 1.7; }
         .preview-modal img { width: 100%; border-radius: 12px; border: 3px solid rgba(255,182,193,0.35); object-fit: cover; }
 
         .preview-close {
-            position: absolute; top: 12px; left: 12px;
-            width: 30px; height: 30px; background: rgba(255,100,100,0.1);
-            border: none; border-radius: 50%; color: #cc0000; font-size: 1.1em;
-            cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+            position: absolute; top: 12px; left: 12px; width: 30px; height: 30px;
+            background: rgba(255,100,100,0.1); border: none; border-radius: 50%; color: #cc0000;
+            font-size: 1.1em; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s;
         }
         .preview-close:hover { background: rgba(255,100,100,0.2); }
 
@@ -214,19 +189,18 @@
             border: 1.5px solid rgba(255,182,193,0.5); color: #D4567A;
             font-size: 0.78em; padding: 3px 10px; border-radius: 20px; margin-bottom: 12px;
         }
+        #statusMsg { font-weight: bold; text-align: center; margin-top: 15px; color: #D4567A; }
     </style>
 </head>
 <body>
 
-    <a href="/our-memoriesss/logout" class="logout-btn">🚪 خروج</a>
-    <a href="/our-memoriesss/home" class="logout-btn" style="left:130px;">👁️ معاينة</a>
+    <a href="../index.html" class="logout-btn">🚪 خروج</a>
+    <a href="../lo2.html" class="logout-btn" style="left:130px;">👁️ معاينة</a>
 
     <div class="header">
         <h1>💖 لوحة التحكم</h1>
         <p>عدّل كل حاجة من هنا اي وقت زي ما تحب💕</p>
     </div>
-
-    
 
     <!-- Modal المساعدة البصرية -->
     <div class="preview-overlay" id="previewOverlay" data-action="closePreview">
@@ -239,8 +213,7 @@
         </div>
     </div>
 
-    <form action="/our-memoriesss/save" method="POST" class="dashboard" autocomplete="off">
-        <input type="hidden" name="csrf_token" value="9175c288b2f63afbb6e4cdefcabeaf97">
+    <form id="adminForm" onsubmit="return false;" class="dashboard" autocomplete="off">
 
         <!-- صفحة اللوجن -->
         <div class="card">
@@ -250,37 +223,30 @@
                     <label>عنوان الصفحة (Enter Password)</label>
                     <button type="button" class="help-btn" data-help="login_title">?</button>
                 </div>
-                <input type="text" name="login_title" value="شهوتي 💗💗" placeholder="Enter Password">
+                <input type="text" id="login_title" value="شهوتي 💗💗" placeholder="Enter Password">
             </div>
             <div class="field-group">
                 <div class="label-row">
                     <label>النص التاني (Our Love Story)</label>
                     <button type="button" class="help-btn" data-help="login_subtitle">?</button>
                 </div>
-                <input type="text" name="login_subtitle" value="" placeholder="Our Love Story 💕">
+                <input type="text" id="login_subtitle" value="" placeholder="Our Love Story 💕">
             </div>
             <div class="field-group">
                 <div class="label-row">
-                    <label>🔑 باسورد </label>
+                    <label>🔑 باسورد الزوار</label>
                     <button type="button" class="help-btn" data-help="password">?</button>
                 </div>
-                <input type="text" name="client_password" value="" placeholder="سيبه فاضي لو مش عايز تغيّره">
-            </div>
-
-            <!-- ===== باسورد الأدمن ===== -->
-            <div class="admin-pass-box">
-                <label>🛡️ باسورد الأدمن (لوحة التحكم)</label>
-                <input type="text" name="admin_password" value="" placeholder="سيبه فاضي لو مش عايز تغيّره">
-                <p class="admin-pass-note">⚠️ غيّره هنا وهيتغير في كل مرة بتدخل لوحة التحكم</p>
+                <input type="text" id="client_password" value="" placeholder="سيبه فاضي لو مش عايز تغيّره">
             </div>
 
             <div class="field-group">
                 <div class="label-row">
-                    <label>🖼️ صورة دائرية في  الاول (اختياري)</label>
+                    <label>🖼️ صورة دائرية في الاول (اختياري)</label>
                     <button type="button" class="help-btn" data-help="login_photo">?</button>
                 </div>
                 <div style="display:flex;gap:10px;align-items:center;">
-                    <input type="text" name="login_photo" value="https://res.cloudinary.com/dvc3zpg1i/image/upload/v1784453237/clients/uk6oa8to4pctkyb9d7ob.jpg" placeholder="رابط الصورة https://...">
+                    <input type="text" id="login_photo" value="" placeholder="رابط الصورة https://...">
                     <button type="button" class="upload-btn" style="white-space:nowrap;padding:10px 14px;" data-clicktrigger="loginPhotoInput">📁 ارفع</button>
                     <input type="file" id="loginPhotoInput" accept="image/*" style="display:none" data-uploadsingle="login_photo">
                 </div>
@@ -289,20 +255,20 @@
 
         <!-- الرسالة الطويلة -->
         <div class="card">
-            <h2 class="card-title">💌  اول ماسدج</h2>
+            <h2 class="card-title">💌 اول ماسدج</h2>
             <div class="field-group">
                 <div class="label-row">
                     <label>العنوان (ينور عيني)</label>
                     <button type="button" class="help-btn" data-help="main_title">?</button>
                 </div>
-                <input type="text" name="main_title" value="ينور عيني 💞" placeholder="ينور عيني 💕">
+                <input type="text" id="main_title" value="ينور عيني 💞" placeholder="ينور عيني 💕">
             </div>
             <div class="field-group">
                 <div class="label-row">
                     <label>الرسالة الطويلة</label>
                     <button type="button" class="help-btn" data-help="main_message">?</button>
                 </div>
-                <textarea name="main_message" rows="8">بحبك اويي يا حته مني ربنا يخليكي ليا يا شهوتي  ونبقا سوا طول العمررر كلو يا اغلي ما ف حياتي😍💗</textarea>
+                <textarea id="main_message" rows="8">بحبك اويي يا حته مني ربنا يخليكي ليا يا شهوتي ونبقا سوا طول العمررر كلو يا اغلي ما ف حياتي😍💗</textarea>
             </div>
         </div>
 
@@ -311,11 +277,11 @@
             <h2 class="card-title">🖼️ الصفحة التانية — اول صوره</h2>
             <div class="field-group">
                 <div class="label-row">
-                    <label>اول صوره  (بتملي الشاشة)</label>
+                    <label>اول صوره (بتملي الشاشة)</label>
                     <button type="button" class="help-btn" data-help="hero_photo">?</button>
                 </div>
                 <div style="display:flex;gap:10px;align-items:center;">
-                    <input type="text" name="hero_photo" value="https://res.cloudinary.com/dvc3zpg1i/image/upload/v1784454328/clients/sd1nvvdewkzz7hkoterr.jpg" placeholder="https://... (لو فاضي بياخد أول صورة)">
+                    <input type="text" id="hero_photo" value="" placeholder="https://... (لو فاضي بياخد أول صورة)">
                     <button type="button" class="upload-btn" style="white-space:nowrap;padding:10px 14px;" data-clicktrigger="heroPhotoInput">📁 ارفع</button>
                     <input type="file" id="heroPhotoInput" accept="image/*" style="display:none" data-uploadsingle="hero_photo">
                 </div>
@@ -325,14 +291,14 @@
                     <label>الي في نص اول صوره(badge)</label>
                     <button type="button" class="help-btn" data-help="hero_badge">?</button>
                 </div>
-                <input type="text" name="hero_badge" value="بحبك" placeholder="بحبك 💕">
+                <input type="text" id="hero_badge" value="بحبك" placeholder="بحبك 💕">
             </div>
             <div class="field-group">
                 <div class="label-row">
                     <label>فوق العداد</label>
                     <button type="button" class="help-btn" data-help="page2_title">?</button>
                 </div>
-                <input type="text" name="page2_title" value="بدايه القصه♥️🤙" placeholder="بدايتنا 💞">
+                <input type="text" id="page2_title" value="بدايه القصه♥️🤙" placeholder="بدايتنا 💞">
             </div>
         </div>
 
@@ -344,14 +310,14 @@
                     <label>📅 التاريخ (من إمتى سوا)</label>
                     <button type="button" class="help-btn" data-help="date">?</button>
                 </div>
-                <input type="date" name="date" value="2026-03-08">
+                <input type="date" id="date" value="2026-03-08">
             </div>
             <div class="field-group">
                 <div class="label-row">
                     <label>النص تحت العداد</label>
                     <button type="button" class="help-btn" data-help="countdown_sub">?</button>
                 </div>
-                <input type="text" name="countdown_sub" value="" placeholder="كل ثانية بتعدي وانتِ في قلبي ❤️">
+                <input type="text" id="countdown_sub" value="" placeholder="كل ثانية بتعدي وانتِ في قلبي ❤️">
             </div>
         </div>
 
@@ -361,19 +327,7 @@
                 تواريخ مميزه
                 <button type="button" class="help-btn" data-help="captions" style="width:26px;height:26px;font-size:0.85em;">?</button>
             </h2>
-            <div class="media-list" id="captions-list">
-                
-                
-                <div class="media-item" style="flex-direction:column;align-items:stretch;gap:8px;">
-                    <div style="display:flex;gap:10px;align-items:center;">
-                        <input type="text" name="caption_texts[]" value="يوم ما قولتلك بحبك" placeholder="يوم ما قولتلك بحبك...">
-                        <input type="date" name="caption_dates[]" value="2026-03-24" style="max-width:155px;">
-                        <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-                    </div>
-                </div>
-                
-                
-            </div>
+            <div class="media-list" id="captions-list"></div>
             <button type="button" class="add-btn" data-action="addCaption">+ إضافة كابشن</button>
         </div>
 
@@ -383,21 +337,9 @@
                 🎵 الأغاني
                 <button type="button" class="help-btn" data-help="songs" style="width:26px;height:26px;font-size:0.85em;">?</button>
             </h2>
-            <div class="media-list" id="songs-list">
-                
-                
-                <div class="media-item" style="flex-direction:column;align-items:stretch;gap:8px;">
-                    <div style="display:flex;gap:10px;align-items:center;">
-                        <input type="text" name="song_urls[]" value="https://res.cloudinary.com/dvc3zpg1i/video/upload/v1784454371/clients/rxojwdbvynuao3tb8qbs.mp4" placeholder="رابط الأغنية https://...">
-                        <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-                    </div>
-                    <input type="text" name="song_names[]" value="برتاح وياك حسيني|توليت " placeholder="اسم الأغنية" style="border-radius:12px;padding:10px 15px;border:3px solid rgba(255,182,193,0.4);font-family:Cairo,sans-serif;font-size:0.88em;background:rgba(255,245,248,0.8);color:#630404;">
-                </div>
-                
-                
-            </div>
+            <div class="media-list" id="songs-list"></div>
             <div style="display:flex;gap:10px;margin-top:5px;">
-                <button type="button" class="upload-btn" id="songBtnUpload" style="flex:1" data-clicktrigger="songFileInput">🎵 ضيف أغنية </button>
+                <button type="button" class="upload-btn" id="songBtnUpload" style="flex:1" data-clicktrigger="songFileInput">🎵 ضيف أغنية من جهازك</button>
                 <input type="file" id="songFileInput" accept="audio/*,video/*" style="display:none" data-uploadsong="1">
             </div>
         </div>
@@ -408,80 +350,20 @@
                 🖼️ الصور
                 <button type="button" class="help-btn" data-help="photos" style="width:26px;height:26px;font-size:0.85em;">?</button>
             </h2>
-            <div class="media-list" id="photos-list">
-                
-                <div class="media-item" style="flex-direction:column; align-items:stretch; gap:8px;">
-                    <div style="display:flex; gap:10px; align-items:center;">
-                        <input type="text" name="photos[]" value="https://res.cloudinary.com/dvc3zpg1i/image/upload/v1784456633/clients/lbrmmrqtdxzkeyqacuyk.jpg" placeholder="رابط الصورة https://...">
-                        <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-                    </div>
-                    <input type="text" name="photo_captions[]" value="جيم عمري ما هنساه❤️💗" placeholder="الجملة تحت الصورة (اختياري)..." style="border-radius:12px; padding:10px 15px; border:3px solid rgba(255,182,193,0.4); font-family:Cairo,sans-serif; font-size:0.9em; background:rgba(255,245,248,0.8); color:#630404;">
-                </div>
-                
-                <div class="media-item" style="flex-direction:column; align-items:stretch; gap:8px;">
-                    <div style="display:flex; gap:10px; align-items:center;">
-                        <input type="text" name="photos[]" value="https://res.cloudinary.com/dvc3zpg1i/image/upload/v1784456652/clients/reds46bsmytkvra8jp6h.jpg" placeholder="رابط الصورة https://...">
-                        <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-                    </div>
-                    <input type="text" name="photo_captions[]" value="💞💓" placeholder="الجملة تحت الصورة (اختياري)..." style="border-radius:12px; padding:10px 15px; border:3px solid rgba(255,182,193,0.4); font-family:Cairo,sans-serif; font-size:0.9em; background:rgba(255,245,248,0.8); color:#630404;">
-                </div>
-                
-                <div class="media-item" style="flex-direction:column; align-items:stretch; gap:8px;">
-                    <div style="display:flex; gap:10px; align-items:center;">
-                        <input type="text" name="photos[]" value="https://res.cloudinary.com/dvc3zpg1i/image/upload/v1784456673/clients/lkkowxxojjkvb9ngftrc.jpg" placeholder="رابط الصورة https://...">
-                        <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-                    </div>
-                    <input type="text" name="photo_captions[]" value="الكتكوت الصغننه بتاعتي💗" placeholder="الجملة تحت الصورة (اختياري)..." style="border-radius:12px; padding:10px 15px; border:3px solid rgba(255,182,193,0.4); font-family:Cairo,sans-serif; font-size:0.9em; background:rgba(255,245,248,0.8); color:#630404;">
-                </div>
-                
-                <div class="media-item" style="flex-direction:column; align-items:stretch; gap:8px;">
-                    <div style="display:flex; gap:10px; align-items:center;">
-                        <input type="text" name="photos[]" value="https://res.cloudinary.com/dvc3zpg1i/image/upload/v1784456752/clients/wsictfy0vainex9fxrdb.jpg" placeholder="رابط الصورة https://...">
-                        <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-                    </div>
-                    <input type="text" name="photo_captions[]" value="💞" placeholder="الجملة تحت الصورة (اختياري)..." style="border-radius:12px; padding:10px 15px; border:3px solid rgba(255,182,193,0.4); font-family:Cairo,sans-serif; font-size:0.9em; background:rgba(255,245,248,0.8); color:#630404;">
-                </div>
-                
-                <div class="media-item" style="flex-direction:column; align-items:stretch; gap:8px;">
-                    <div style="display:flex; gap:10px; align-items:center;">
-                        <input type="text" name="photos[]" value="https://res.cloudinary.com/dvc3zpg1i/image/upload/v1784458163/clients/dmcnmxjczhnx79oud12h.jpg" placeholder="رابط الصورة https://...">
-                        <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-                    </div>
-                    <input type="text" name="photo_captions[]" value="" placeholder="الجملة تحت الصورة (اختياري)..." style="border-radius:12px; padding:10px 15px; border:3px solid rgba(255,182,193,0.4); font-family:Cairo,sans-serif; font-size:0.9em; background:rgba(255,245,248,0.8); color:#630404;">
-                </div>
-                
-                <div class="media-item" style="flex-direction:column; align-items:stretch; gap:8px;">
-                    <div style="display:flex; gap:10px; align-items:center;">
-                        <input type="text" name="photos[]" value="https://res.cloudinary.com/dvc3zpg1i/image/upload/v1784458178/clients/gvxknr4r5vlqb2srohgz.jpg" placeholder="رابط الصورة https://...">
-                        <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-                    </div>
-                    <input type="text" name="photo_captions[]" value="جيم عمري ما هنساه" placeholder="الجملة تحت الصورة (اختياري)..." style="border-radius:12px; padding:10px 15px; border:3px solid rgba(255,182,193,0.4); font-family:Cairo,sans-serif; font-size:0.9em; background:rgba(255,245,248,0.8); color:#630404;">
-                </div>
-                
-                <div class="media-item" style="flex-direction:column; align-items:stretch; gap:8px;">
-                    <div style="display:flex; gap:10px; align-items:center;">
-                        <input type="text" name="photos[]" value="https://res.cloudinary.com/dvc3zpg1i/image/upload/v1784458303/clients/xrrpozbwrzpcgrtlux4y.jpg" placeholder="رابط الصورة https://...">
-                        <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-                    </div>
-                    <input type="text" name="photo_captions[]" value="عيله ال عملناها سوا ❤️‍🩹" placeholder="الجملة تحت الصورة (اختياري)..." style="border-radius:12px; padding:10px 15px; border:3px solid rgba(255,182,193,0.4); font-family:Cairo,sans-serif; font-size:0.9em; background:rgba(255,245,248,0.8); color:#630404;">
-                </div>
-                
-            </div>
+            <div class="media-list" id="photos-list"></div>
             <div style="display:flex; flex-direction:column; gap:8px;">
                 <button type="button" class="upload-btn" id="photoBtnUpload" data-clicktrigger="photoFileInput">📁 ضيف صورة من جهازك </button>
                 <input type="file" id="photoFileInput" accept="image/*" style="display:none" data-uploadfile="image">
             </div>
         </div>
 
-        
+        <!-- الفيديوهات -->
         <div class="card">
             <h2 class="card-title" style="justify-content:space-between;">
                 🎥 الفيديوهات
                 <button type="button" class="help-btn" data-help="videos" style="width:26px;height:26px;font-size:0.85em;">?</button>
             </h2>
-            <div class="media-list" id="videos-list">
-                
-            </div>
+            <div class="media-list" id="videos-list"></div>
             <div style="display:flex; flex-direction:column; gap:8px;">
                 <button type="button" class="upload-btn" id="videoBtnUpload" data-clicktrigger="videoFileInput">🎬 ضيف فيديو من جهازك </button>
                 <input type="file" id="videoFileInput" accept="video/*" style="display:none" data-uploadfile="video">
@@ -494,142 +376,275 @@
                 💬 الجمل في صفحة الرسالة
                 <button type="button" class="help-btn" data-help="sentences" style="width:26px;height:26px;font-size:0.85em;">?</button>
             </h2>
-            <div class="sentences-list" id="sentences-list">
-                
-                <div class="sentence-item">
-                    <div class="sentence-num">1</div>
-                    <input type="text" name="sentences[]" value="مهما اقول بحبك ازاي مش هوفي ف حقك" placeholder="جملة 1">
-                    <button type="button" class="delete-btn" data-remove="sentence-item">🗑️</button>
-                </div>
-                
-                <div class="sentence-item">
-                    <div class="sentence-num">2</div>
-                    <input type="text" name="sentences[]" value="اجمل حد ف حياتي " placeholder="جملة 2">
-                    <button type="button" class="delete-btn" data-remove="sentence-item">🗑️</button>
-                </div>
-                
-                <div class="sentence-item">
-                    <div class="sentence-num">3</div>
-                    <input type="text" name="sentences[]" value="معاكي الدنيا احلي بكتير" placeholder="جملة 3">
-                    <button type="button" class="delete-btn" data-remove="sentence-item">🗑️</button>
-                </div>
-                
-                <div class="sentence-item">
-                    <div class="sentence-num">4</div>
-                    <input type="text" name="sentences[]" value="بحبك اوي" placeholder="جملة 4">
-                    <button type="button" class="delete-btn" data-remove="sentence-item">🗑️</button>
-                </div>
-                
-            </div>
+            <div class="sentences-list" id="sentences-list"></div>
             <button type="button" class="add-btn" data-action="addSentence" style="margin-top:12px">+ إضافة جملة</button>
         </div>
 
-        <!-- زر الحفظ -->
-        <button type="submit" class="save-btn">save💾</button>
+        <!-- زر الحفظ ورسالة الحالة -->
+        <button type="button" id="saveAllBtn" class="save-btn">save💾</button>
+        <div id="statusMsg"></div>
 
     </form>
 
-<script nonce="SfkqHwgLi0QvJQb70Eby5Q">
-    const SIGN_URL = "/our-memoriesss/sign";  // رفع مباشر لـ Cloudinary
+<script type="module">
+    // 1. كلمة سر دخول لوحة التحكم
+    const ADMIN_PASSWORD = "123456";
+    const userPass = prompt("برجاء أدخل كلمة السر للدخول إلى لوحة التحكم:");
+    if (userPass !== ADMIN_PASSWORD) {
+        alert("كلمة السر غير صحيحة!");
+        window.location.href = "../index.html";
+    }
 
-    // ===== نظام المساعدة البصرية =====
-    const HELP_DATA = {
-        login_title: {
-            badge: ' login page',
-            title: '📝العنوان الي بيظهر في الاول خالص',
-            desc: 'اكتب/ي الاسم مثلا او اسمكم او كلمه متعودين تقولها لبعض او حاجه تاني عادي',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776547919/clients/kzx9ubc0b3wxmiad6i24.jpg'
-        },
-        login_subtitle: {
-            badge: ' login page',
-            title: '💬  الي تحت اول عنوان ',
-            desc: 'ممكن جمله صغيره مثلا بحبك او اي حاجه تحبها ',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776548031/clients/encauswcstfynitwbzkv.jpg'
-        },
-        password: {
-            badge: 'الباسورد',
-            title: '🔑 باسورد الموقع الاساسي',
-            desc: 'الباسورد الي لما بتكتبه بيفتح الويب الاساسي غيره عادي وجرب زي متحب',
-            img: ''
-        },
-        login_photo: {
-            badge: 'صفحة الدخول',
-            title: '🖼️ صوره علي شكل دائره بتكون فوق العنوان (اختياري)',
-            desc: ' ممكن صورتكم سوا أو أي صورة تحبها.',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776548530/clients/xbsr5m5mgao51v7u0x0x.jpg'
-        },
-        main_title: {
-            badge: 'الماسدج',
-            title: '💌 عنوان الماسدج',
-            desc: 'اسم او حاجه متعودين بتقولوها لعبض او حاجه من عندك',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776549177/clients/h1nh1hmvbjtkiez6xdok.jpg'
-        },
-        main_message: {
-            badge: 'الماسدج',
-            title: '📜 رساله طويله عادي اكتب زي ما تحب/ي ',
-            desc: 'رساله من كل قلبك😍',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776549339/clients/udmv3snnkdkvccjnccop.jpg'
-        },
-        hero_photo: {
-            badge: 'الصفحة التانية',
-            title: '🖼️ صوره بتملي الشاشه في اول جزء',
-            desc: 'صوره ليكم سوا او صوره تحبها او اي حاجه تحبوها',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776549471/clients/ho9npxedehzrzlxkb9na.jpg'
-        },
-        hero_badge: {
-            badge: 'الصفحة التانية',
-            title: 'الكلمه الي في نص الصوره',
-            desc: 'ممكن بحبك',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776549603/clients/gv5lf5cjtaacw0oxziuj.jpg'
-        },
-        page2_title: {
-            badge: 'الصفحة التانية',
-            title: '⏰ كلمه فوق العداد',
-            desc: 'جملة بتظهر فوق عداد بقالكم قد ايه سوا — زي "بدايتنا 💞" أو "من يوم ما قابلتك".',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776549913/clients/vhtyickg4dv0y8gftcwp.jpg'
-        },
-        date: {
-            badge: 'عداد',
-            title: '📅 تاريخ بيعد بقالكم قد ايه سوا',
-            desc: 'اختار/ي التاريخ من إمتى بقيتوا سوا — العداد بيحسب الأيام والشهور والسنين من التاريخ ده تلقائي.',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776550644/clients/gmfyftwdznrgw6gdsyxd.jpg'
-        },
-        countdown_sub: {
-            badge: 'العداد',
-            title: '💬 الجملة تحت العداد',
-            desc: 'جملة صغيرة بتظهر تحت العداد غيرها زي ما تحب/ي ❤️"',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776550686/clients/t3ffq3unc0swtblo4jhr.jpg'
-        },
-        captions: {
-            badge: 'تواريخ مميزه',
-            title: '💬جمله ومعاها تاريخ مميز',
-            desc: 'كل كارت بيتعمل فيه جملة مميزة وتاريخها — زي ذكرى يوم خاص أو كلام قلته في وقت معين.',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776550829/clients/cp3ocfosfuaqsruygyth.jpg'
-        },
-        songs: {
-            badge: 'الأغاني',
-            title: '🎵 الأغاني اللي بتشتغل في الويب',
-            desc: ' ارفع/ي من أغنية لتلت اغاني من جهازك. بيكون صيغه فيديو للاغنيه ',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776550875/clients/kyjhqlki0u0fmcbyoi5z.jpg'
-        },
-        photos: {
-            badge: 'الصور',
-            title: '🖼️  الصور بتاعتكم',
-            desc: 'صور ليكم سوا وكل صوره تحتها جمله',
-            img: ''
-        },
-        videos: {
-            badge: 'الفيديوهات',
-            title: '🎥 الفيديوهات',
-            desc: 'ضيف/ي فيديوهات ليكم سوا او اي فيديو تحبوه',
-            img: ''
-        },
-        sentences: {
-            badge: 'الجمل',
-            title: '💬 جمل بتظهر في اخر صفحه',
-            desc: 'اخر جمل اكتب/ي من كل قلبك',
-            img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776551611/clients/xkr0gqkv8vucfen6t94f.jpg'
+    // 2. استدعاء Firebase
+    import { db, storage, doc, setDoc, getDoc } from "../firebase.js";
+    import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
+
+    const siteDocRef = doc(db, "site", "main");
+
+    // تحميل البيانات القديمة من Firestore
+    async function loadFirebaseData() {
+        try {
+            const snap = await getDoc(siteDocRef);
+            if(snap.exists()){
+                const d = snap.data();
+                if(d.login_title) document.getElementById('login_title').value = d.login_title;
+                if(d.login_subtitle) document.getElementById('login_subtitle').value = d.login_subtitle;
+                if(d.client_password) document.getElementById('client_password').value = d.client_password;
+                if(d.login_photo) document.getElementById('login_photo').value = d.login_photo;
+                if(d.main_title) document.getElementById('main_title').value = d.main_title;
+                if(d.main_message) document.getElementById('main_message').value = d.main_message;
+                if(d.hero_photo) document.getElementById('hero_photo').value = d.hero_photo;
+                if(d.hero_badge) document.getElementById('hero_badge').value = d.hero_badge;
+                if(d.page2_title) document.getElementById('page2_title').value = d.page2_title;
+                if(d.date) document.getElementById('date').value = d.date;
+                if(d.countdown_sub) document.getElementById('countdown_sub').value = d.countdown_sub;
+
+                // تحميل القوائم الديناميكية
+                if(d.captions && Array.isArray(d.captions)) {
+                    d.captions.forEach(c => addCaption(c.text, c.date));
+                }
+                if(d.songs && Array.isArray(d.songs)) {
+                    d.songs.forEach(s => addSong(s.url, s.name));
+                }
+                if(d.photos && Array.isArray(d.photos)) {
+                    d.photos.forEach(p => addPhoto(p.url, p.caption));
+                }
+                if(d.videos && Array.isArray(d.videos)) {
+                    d.videos.forEach(v => addVideo(v));
+                }
+                if(d.sentences && Array.isArray(d.sentences)) {
+                    d.sentences.forEach(s => addSentence(s));
+                }
+            }
+        } catch(e) {
+            console.error("خطأ في قراءة البيانات:", e);
         }
+    }
+    loadFirebaseData();
+
+    // دالة الرفع إلى Firebase Storage
+    async function uploadToStorage(file, folder) {
+        const fileRef = ref(storage, `${folder}/${Date.now()}_${file.name}`);
+        const snapshot = await uploadBytes(fileRef, file);
+        return await getDownloadURL(snapshot.ref);
+    }
+
+    // رفع الملفات الفردية (مثل صوة اللوجن أو صوة الهاتف)
+    window.uploadSingle = async function(input, targetId) {
+        const file = input.files[0];
+        if(!file) return;
+        try {
+            document.getElementById('statusMsg').textContent = "جاري رفع الصورة...";
+            const url = await uploadToStorage(file, 'images');
+            document.getElementById(targetId).value = url;
+            document.getElementById('statusMsg').textContent = "تم رفع الصورة بنجاح!";
+        } catch(e) {
+            alert("حدث خطأ أثناء الرفع");
+        }
+    }
+
+    // رفع فيديو/صوت/صورة للقوائم
+    window.uploadFile = async function(input, type) {
+        const file = input.files[0];
+        if(!file) return;
+        const btn = document.getElementById(type === 'video' ? 'videoBtnUpload' : 'photoBtnUpload');
+        const origText = btn.textContent;
+        btn.textContent = "⏳ جاري الرفع...";
+        btn.disabled = true;
+
+        try {
+            const folder = type === 'video' ? 'videos' : 'images';
+            const url = await uploadToStorage(file, folder);
+            if(type === 'video') addVideo(url);
+            else addPhoto(url, "");
+            btn.textContent = "✅ اترفع بنجاح!";
+            setTimeout(() => { btn.textContent = origText; btn.disabled = false; }, 2000);
+        } catch(e) {
+            alert("حدث خطأ أثناء الرفع");
+            btn.textContent = origText; btn.disabled = false;
+        }
+    }
+
+    window.uploadSong = async function(input) {
+        const file = input.files[0];
+        if(!file) return;
+        const btn = document.getElementById('songBtnUpload');
+        const origText = btn.textContent;
+        btn.textContent = "⏳ جاري الرفع...";
+        btn.disabled = true;
+
+        try {
+            const url = await uploadToStorage(file, 'audio');
+            addSong(url, file.name);
+            btn.textContent = "✅ اترفع بنجاح!";
+            setTimeout(() => { btn.textContent = origText; btn.disabled = false; }, 2000);
+        } catch(e) {
+            alert("حدث خطأ أثناء الرفع");
+            btn.textContent = origText; btn.disabled = false;
+        }
+    }
+
+    // حفظ جميع البيانات داخل Firebase Firestore
+    document.getElementById('saveAllBtn').addEventListener('click', async () => {
+        const status = document.getElementById('statusMsg');
+        status.textContent = "جاري الحفظ في القاعدة...";
+
+        // تجميع البيانات
+        const captions = Array.from(document.querySelectorAll('#captions-list .media-item')).map(item => ({
+            text: item.querySelector('input[type="text"]').value,
+            date: item.querySelector('input[type="date"]').value
+        }));
+
+        const songs = Array.from(document.querySelectorAll('#songs-list .media-item')).map(item => ({
+            url: item.querySelectorAll('input[type="text"]')[0].value,
+            name: item.querySelectorAll('input[type="text"]')[1].value
+        }));
+
+        const photos = Array.from(document.querySelectorAll('#photos-list .media-item')).map(item => ({
+            url: item.querySelectorAll('input[type="text"]')[0].value,
+            caption: item.querySelectorAll('input[type="text"]')[1].value
+        }));
+
+        const videos = Array.from(document.querySelectorAll('#videos-list input[name="videos[]"]')).map(input => input.value);
+        const sentences = Array.from(document.querySelectorAll('#sentences-list input[name="sentences[]"]')).map(input => input.value);
+
+        const dataToSave = {
+            login_title: document.getElementById('login_title').value,
+            login_subtitle: document.getElementById('login_subtitle').value,
+            client_password: document.getElementById('client_password').value,
+            login_photo: document.getElementById('login_photo').value,
+            main_title: document.getElementById('main_title').value,
+            main_message: document.getElementById('main_message').value,
+            hero_photo: document.getElementById('hero_photo').value,
+            hero_badge: document.getElementById('hero_badge').value,
+            page2_title: document.getElementById('page2_title').value,
+            date: document.getElementById('date').value,
+            countdown_sub: document.getElementById('countdown_sub').value,
+            captions, songs, photos, videos, sentences,
+            updatedAt: new Date().toISOString()
+        };
+
+        try {
+            await setDoc(siteDocRef, dataToSave, { merge: true });
+            status.textContent = "✅ تم حفظ التغييرات بنجاح وتحديث الموقع المباشر!";
+        } catch(e) {
+            console.error(e);
+            status.textContent = "❌ حدث خطأ أثناء عملية الحفظ!";
+        }
+    });
+
+    // --------------------------------------------------
+    // الدوال الخاصة بإضافة القوائم
+    // --------------------------------------------------
+    window.addCaption = function(text = "", dateVal = "") {
+        const list = document.getElementById('captions-list');
+        const div = document.createElement('div');
+        div.className = 'media-item';
+        div.style.cssText = 'flex-direction:column;align-items:stretch;gap:8px;';
+        div.innerHTML = `
+            <div style="display:flex;gap:10px;align-items:center;">
+                <input type="text" value="${text}" placeholder="يوم ما قولتلك بحبك...">
+                <input type="date" value="${dateVal}" style="max-width:155px;">
+                <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
+            </div>
+        `;
+        list.appendChild(div);
+    }
+
+    window.addSong = function(url = "", name = "") {
+        const list = document.getElementById('songs-list');
+        const div = document.createElement('div');
+        div.className = 'media-item';
+        div.style.cssText = 'flex-direction:column;align-items:stretch;gap:8px;';
+        div.innerHTML = `
+            <div style="display:flex;gap:10px;align-items:center;">
+                <input type="text" name="song_urls[]" value="${url}" placeholder="رابط الأغنية https://...">
+                <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
+            </div>
+            <input type="text" name="song_names[]" value="${name}" placeholder="اسم الأغنية" style="border-radius:12px;padding:10px 15px;border:3px solid rgba(255,182,193,0.4);font-family:Cairo,sans-serif;font-size:0.88em;background:rgba(255,245,248,0.8);color:#630404;">
+        `;
+        list.appendChild(div);
+    }
+
+    window.addPhoto = function(url = "", caption = "") {
+        const list = document.getElementById('photos-list');
+        const div = document.createElement('div');
+        div.className = 'media-item';
+        div.style.cssText = 'flex-direction:column; align-items:stretch; gap:8px;';
+        div.innerHTML = `
+            <div style="display:flex; gap:10px; align-items:center;">
+                <input type="text" name="photos[]" value="${url}" placeholder="رابط الصورة https://...">
+                <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
+            </div>
+            <input type="text" name="photo_captions[]" value="${caption}" placeholder="الجملة تحت الصورة (اختياري)..." style="border-radius:12px; padding:10px 15px; border:3px solid rgba(255,182,193,0.4); font-family:Cairo,sans-serif; font-size:0.9em; background:rgba(255,245,248,0.8); color:#630404;">
+        `;
+        list.appendChild(div);
+    }
+
+    window.addVideo = function(url = "") {
+        const list = document.getElementById('videos-list');
+        const div = document.createElement('div');
+        div.className = 'media-item';
+        div.innerHTML = `
+            <input type="text" name="videos[]" value="${url}" placeholder="رابط الفيديو https://...">
+            <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
+        `;
+        list.appendChild(div);
+    }
+
+    window.addSentence = function(text = "") {
+        const list = document.getElementById('sentences-list');
+        const num = list.children.length + 1;
+        const div = document.createElement('div');
+        div.className = 'sentence-item';
+        div.innerHTML = `
+            <div class="sentence-num">${num}</div>
+            <input type="text" name="sentences[]" value="${text}" placeholder="جملة ${num}">
+            <button type="button" class="delete-btn" data-remove="sentence-item">🗑️</button>
+        `;
+        list.appendChild(div);
+    }
+</script>
+
+<script>
+    // نظام المساعدة البصرية والأحداث
+    const HELP_DATA = {
+        login_title: { badge: ' login page', title: '📝العنوان الي بيظهر في الاول خالص', desc: 'اكتب/ي الاسم مثلا او اسمكم او كلمه متعودين تقولها لبعض او حاجه تاني عادي', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776547919/clients/kzx9ubc0b3wxmiad6i24.jpg' },
+        login_subtitle: { badge: ' login page', title: '💬 الي تحت اول عنوان ', desc: 'ممكن جمله صغيره مثلا بحبك او اي حاجه تحبها ', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776548031/clients/encauswcstfynitwbzkv.jpg' },
+        password: { badge: 'الباسورد', title: '🔑 باسورد الموقع الاساسي', desc: 'الباسورد الي لما بتكتبه بيفتح الويب الاساسي غيره عادي وجرب زي متحب', img: '' },
+        login_photo: { badge: 'صفحة الدخول', title: '🖼️ صوره علي شكل دائره بتكون فوق العنوان (اختياري)', desc: ' ممكن صورتكم سوا أو أي صورة تحبها.', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776548530/clients/xbsr5m5mgao51v7u0x0x.jpg' },
+        main_title: { badge: 'الماسدج', title: '💌 عنوان الماسدج', desc: 'اسم او حاجه متعودين بتقولوها لعبض او حاجه من عندك', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776549177/clients/h1nh1hmvbjtkiez6xdok.jpg' },
+        main_message: { badge: 'الماسدج', title: '📜 رساله طويله عادي اكتب زي ما تحب/ي ', desc: 'رساله من كل قلبك😍', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776549339/clients/udmv3snnkdkvccjnccop.jpg' },
+        hero_photo: { badge: 'الصفحة التانية', title: '🖼️ صوره بتملي الشاشه في اول جزء', desc: 'صوره ليكم سوا او صوره تحبها او اي حاجه تحبوها', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776549471/clients/ho9npxedehzrzlxkb9na.jpg' },
+        hero_badge: { badge: 'الصفحة التانية', title: 'الكلمه الي في نص الصوره', desc: 'ممكن بحبك', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776549603/clients/gv5lf5cjtaacw0oxziuj.jpg' },
+        page2_title: { badge: 'الصفحة التانية', title: '⏰ كلمه فوق العداد', desc: 'جملة بتظهر فوق عداد بقالكم قد ايه سوا — زي "بدايتنا 💞" أو "من يوم ما قابلتك".', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776549913/clients/vhtyickg4dv0y8gftcwp.jpg' },
+        date: { badge: 'عداد', title: '📅 تاريخ بيعد بقالكم قد ايه سوا', desc: 'اختار/ي التاريخ من إمتى بقيتوا سوا — العداد بيحسب الأيام والشهور والسنين من التاريخ ده تلقائي.', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776550644/clients/gmfyftwdznrgw6gdsyxd.jpg' },
+        countdown_sub: { badge: 'العداد', title: '💬 الجملة تحت العداد', desc: 'جملة صغيرة بتظهر تحت العداد غيرها زي ما تحب/ي ❤️"', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776550686/clients/t3ffq3unc0swtblo4jhr.jpg' },
+        captions: { badge: 'تواريخ مميزه', title: '💬جمله ومعاها تاريخ مميز', desc: 'كل كارت بيتعمل فيه جملة مميزة وتاريخها — زي ذكرى يوم خاص أو كلام قلته في وقت معين.', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776550829/clients/cp3ocfosfuaqsruygyth.jpg' },
+        songs: { badge: 'الأغاني', title: '🎵 الأغاني اللي بتشتغل في الويب', desc: ' ارفع/ي من أغنية لتلت اغاني من جهازك. بيكون صيغه فيديو للاغنيه ', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776550875/clients/kyjhqlki0u0fmcbyoi5z.jpg' },
+        photos: { badge: 'الصور', title: '🖼️ الصور بتاعتكم', desc: 'صور ليكم سوا وكل صوره تحتها جمله', img: '' },
+        videos: { badge: 'الفيديوهات', title: '🎥 الفيديوهات', desc: 'ضيف/ي فيديوهات ليكم سوا او اي فيديو تحبوه', img: '' },
+        sentences: { badge: 'الجمل', title: '💬 جمل بتظهر في اخر صفحه', desc: 'اخر جمل اكتب/ي من كل قلبك', img: 'https://res.cloudinary.com/dgrsuc68m/image/upload/v1776551611/clients/xkr0gqkv8vucfen6t94f.jpg' }
     };
 
     function showHelp(key) {
@@ -648,226 +663,11 @@
         document.getElementById('previewOverlay').classList.add('active');
     }
 
-    function closeHelp() {
-        document.getElementById('previewOverlay').classList.remove('active');
-    }
-
-    function closePreview(e) {
-        if (e.target === document.getElementById('previewOverlay')) closeHelp();
-    }
+    function closeHelp() { document.getElementById('previewOverlay').classList.remove('active'); }
+    function closePreview(e) { if (e.target === document.getElementById('previewOverlay')) closeHelp(); }
 
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeHelp(); });
 
-    async function getSignature() {
-        const res = await fetch(SIGN_URL, { method: 'POST' });
-        return await res.json();
-    }
-
-    async function uploadSingle(input, fieldName) {
-        const file = input.files[0];
-        if (!file) return;
-        if (file.size > 30 * 1024 * 1024) { alert('❌ الملف كبير! الحد الأقصى 30MB'); input.value=''; return; }
-
-        const sig = await getSignature();
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('timestamp', sig.timestamp);
-        formData.append('signature', sig.signature);
-        formData.append('api_key', sig.api_key);
-        formData.append('folder', 'clients');
-
-        try {
-            const res = await fetch(`https://api.cloudinary.com/v1_1/${sig.cloud_name}/image/upload`, { method: 'POST', body: formData });
-            const data = await res.json();
-            if (data.secure_url) document.querySelector(`input[name="${fieldName}"]`).value = data.secure_url;
-            else alert('❌ ' + (data.error?.message || 'حصل خطأ'));
-        } catch(e) { alert('❌ حصل خطأ في الرفع'); }
-        input.value = '';
-    }
-
-    function addSong() {
-        const list = document.getElementById('songs-list');
-        const div = document.createElement('div');
-        div.className = 'media-item';
-        div.style.cssText = 'flex-direction:column;align-items:stretch;gap:8px;';
-        div.innerHTML = `
-            <div style="display:flex;gap:10px;align-items:center;">
-                <input type="text" name="song_urls[]" placeholder="رابط الأغنية https://...">
-                <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-            </div>
-            <input type="text" name="song_names[]" placeholder="اسم الأغنية" style="border-radius:12px;padding:10px 15px;border:3px solid rgba(255,182,193,0.4);font-family:Cairo,sans-serif;font-size:0.88em;background:rgba(255,245,248,0.8);color:#630404;">
-        `;
-        list.appendChild(div);
-    }
-
-    function addCaption() {
-        const list = document.getElementById('captions-list');
-        const div = document.createElement('div');
-        div.className = 'media-item';
-        div.style.cssText = 'flex-direction:column;align-items:stretch;gap:8px;';
-        div.innerHTML = `
-            <div style="display:flex;gap:10px;align-items:center;">
-                <input type="text" name="caption_texts[]" placeholder="يوم ما قولتلك بحبك...">
-                <input type="date" name="caption_dates[]" style="max-width:155px;">
-                <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-            </div>
-        `;
-        list.appendChild(div);
-    }
-
-    function addSentence() {
-        const list = document.getElementById('sentences-list');
-        const num = list.children.length + 1;
-        const div = document.createElement('div');
-        div.className = 'sentence-item';
-        div.innerHTML = `
-            <div class="sentence-num">${num}</div>
-            <input type="text" name="sentences[]" placeholder="جملة ${num}">
-            <button type="button" class="delete-btn" data-remove="sentence-item">🗑️</button>
-        `;
-        list.appendChild(div);
-    }
-
-    async function uploadSong(input) {
-        const file = input.files[0];
-        if (!file) return;
-        if (file.size > 100 * 1024 * 1024) { alert('❌ الملف كبير! الحد الأقصى 100MB'); input.value=''; return; }
-
-        const btn = document.getElementById('songBtnUpload');
-        const originalText = btn.textContent;
-        btn.textContent = '⏳ جاري الرفع...';
-        btn.disabled = true;
-
-        const sig = await getSignature();
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('timestamp', sig.timestamp);
-        formData.append('signature', sig.signature);
-        formData.append('api_key', sig.api_key);
-        formData.append('folder', 'clients');
-
-        try {
-            const res = await fetch(`https://api.cloudinary.com/v1_1/${sig.cloud_name}/video/upload`, { method: 'POST', body: formData });
-            const data = await res.json();
-            if (data.secure_url) {
-                const list = document.getElementById('songs-list');
-                const div = document.createElement('div');
-                div.className = 'media-item';
-                div.style.cssText = 'flex-direction:column;align-items:stretch;gap:8px;';
-                div.innerHTML = `
-                    <div style="display:flex;gap:10px;align-items:center;">
-                        <input type="text" name="song_urls[]" value="${data.secure_url}">
-                        <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-                    </div>
-                    <input type="text" name="song_names[]" placeholder="اسم الأغنية" style="border-radius:12px;padding:10px 15px;border:3px solid rgba(255,182,193,0.4);font-family:Cairo,sans-serif;font-size:0.88em;background:rgba(255,245,248,0.8);color:#630404;">
-                `;
-                list.appendChild(div);
-                btn.style.background = 'linear-gradient(135deg, #90EE90, #32CD32)';
-                btn.textContent = '✅ اترفع بنجاح!';
-                setTimeout(() => { btn.style.background=''; btn.textContent=originalText; btn.disabled=false; }, 2000);
-            } else {
-                alert('❌ ' + (data.error?.message || 'حصل خطأ'));
-                btn.textContent = originalText; btn.disabled = false;
-            }
-        } catch(e) {
-            alert('❌ حصل خطأ في الرفع');
-            btn.textContent = originalText; btn.disabled = false;
-        }
-        input.value = '';
-    }
-
-    function addPhoto() {
-        const list = document.getElementById('photos-list');
-        const div = document.createElement('div');
-        div.className = 'media-item';
-        div.style.cssText = 'flex-direction:column; align-items:stretch; gap:8px;';
-        div.innerHTML = `
-            <div style="display:flex; gap:10px; align-items:center;">
-                <input type="text" name="photos[]" placeholder="رابط الصورة https://...">
-                <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-            </div>
-            <input type="text" name="photo_captions[]" placeholder="الجملة تحت الصورة (اختياري)..." style="border-radius:12px; padding:10px 15px; border:3px solid rgba(255,182,193,0.4); font-family:Cairo,sans-serif; font-size:0.9em; background:rgba(255,245,248,0.8); color:#630404;">
-        `;
-        list.appendChild(div);
-    }
-
-    function addVideo() {
-        const list = document.getElementById('videos-list');
-        const div = document.createElement('div');
-        div.className = 'media-item';
-        div.innerHTML = `
-            <input type="text" name="videos[]" placeholder="رابط الفيديو https://...">
-            <button type="button" class="delete-btn" data-remove="self">🗑️</button>
-        `;
-        list.appendChild(div);
-    }
-
-    function removeItem(el) {
-        el.remove();
-    }
-
-    async function uploadFile(input, type) {
-        const file = input.files[0];
-        if (!file) return;
-
-        const maxSize = type === 'video' ? 100 * 1024 * 1024 : 30 * 1024 * 1024;
-        const maxLabel = type === 'video' ? '100MB' : '30MB';
-
-        if (file.size > maxSize) { alert('❌ الملف كبير! الحد الأقصى ' + maxLabel); input.value=''; return; }
-
-        const btn = document.getElementById(type === 'video' ? 'videoBtnUpload' : 'photoBtnUpload');
-        const originalText = btn.textContent;
-        btn.textContent = '⏳ جاري الرفع...';
-        btn.disabled = true;
-
-        const sig = await getSignature();
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('timestamp', sig.timestamp);
-        formData.append('signature', sig.signature);
-        formData.append('api_key', sig.api_key);
-        formData.append('folder', 'clients');
-
-        const cloudinaryType = type === 'video' ? 'video' : 'image';
-
-        try {
-            const res = await fetch(`https://api.cloudinary.com/v1_1/${sig.cloud_name}/${cloudinaryType}/upload`, { method: 'POST', body: formData });
-            const data = await res.json();
-            if (data.secure_url) {
-                const listId = type === 'video' ? 'videos-list' : 'photos-list';
-                const list = document.getElementById(listId);
-                const div = document.createElement('div');
-                div.className = 'media-item';
-                if (type === 'image') {
-                    div.style.cssText = 'flex-direction:column; align-items:stretch; gap:8px;';
-                    div.innerHTML = `
-                        <div style="display:flex; gap:10px; align-items:center;">
-                            <input type="text" name="photos[]" value="${data.secure_url}">
-                            <button type="button" class="delete-btn" data-remove="media-item">🗑️</button>
-                        </div>
-                        <input type="text" name="photo_captions[]" placeholder="الجملة تحت الصورة (اختياري)..." style="border-radius:12px; padding:10px 15px; border:3px solid rgba(255,182,193,0.4); font-family:Cairo,sans-serif; font-size:0.9em; background:rgba(255,245,248,0.8); color:#630404;">`;
-                } else {
-                    div.innerHTML = `
-                        <input type="text" name="videos[]" value="${data.secure_url}">
-                        <button type="button" class="delete-btn" data-remove="self">🗑️</button>`;
-                }
-                list.appendChild(div);
-                btn.style.background = 'linear-gradient(135deg, #90EE90, #32CD32)';
-                btn.textContent = '✅ اترفع بنجاح!';
-                setTimeout(() => { btn.style.background=''; btn.textContent=originalText; btn.disabled=false; }, 2000);
-            } else {
-                alert('❌ ' + (data.error?.message || 'حصل خطأ'));
-                btn.textContent = originalText; btn.disabled = false;
-            }
-        } catch(e) {
-            alert('❌ حصل خطأ في الرفع');
-            btn.textContent = originalText; btn.disabled = false;
-        }
-        input.value = '';
-    }
-
-    // ===== Event delegation (CSP-safe: مفيش inline handlers خالص) =====
-    // بيشتغل مع العناصر الموجودة + اللي بتتولّد ديناميكيًا (بالـ innerHTML).
     document.addEventListener('click', function(e){
         var t = e.target.closest('[data-action],[data-help],[data-clicktrigger],[data-remove]');
         if(!t) return;
@@ -878,28 +678,22 @@
             return;
         }
         if('remove' in t.dataset){
-            if(t.dataset.remove === 'self') removeItem(t);
-            else removeItem(t.closest('.' + t.dataset.remove));
+            t.closest('.' + t.dataset.remove).remove();
             return;
         }
         var a = t.dataset.action;
-        if(a === 'closePreview') closePreview(e);      // بيمرّر الحدث الأصلي (بيقارن e.target)
+        if(a === 'closePreview') closePreview(e);
         else if(a === 'closeHelp') closeHelp();
-        else if(a === 'addCaption') addCaption();
-        else if(a === 'addSentence') addSentence();
+        else if(a === 'addCaption') window.addCaption();
+        else if(a === 'addSentence') window.addSentence();
     });
+
     document.addEventListener('change', function(e){
         var t = e.target;
-        if('uploadsong' in t.dataset) uploadSong(t);
-        else if('uploadsingle' in t.dataset) uploadSingle(t, t.dataset.uploadsingle);
-        else if('uploadfile' in t.dataset) uploadFile(t, t.dataset.uploadfile);
+        if('uploadsong' in t.dataset) window.uploadSong(t);
+        else if('uploadsingle' in t.dataset) window.uploadSingle(t, t.dataset.uploadsingle);
+        else if('uploadfile' in t.dataset) window.uploadFile(t, t.dataset.uploadfile);
     });
-    // إخفاء الصور اللي فشل تحميلها (بدل onerror inline) — capture عشان error مبيـbubbleش
-    document.addEventListener('error', function(e){
-        var el = e.target;
-        if(el && el.tagName === 'IMG' && 'hideonerror' in el.dataset) el.style.display = 'none';
-    }, true);
 </script>
-
-<script type="module" src="firebase.js"></script>
 </body>
+</html>

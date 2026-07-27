@@ -1,17 +1,15 @@
+// firebase.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc,
-  onSnapshot
+import { 
+  getFirestore, 
+  doc, 
+  setDoc, 
+  getDoc, 
+  onSnapshot 
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
 
-import {
-  getStorage
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js";
-
+// إعدادات مشروع Firebase الخاص بك
 const firebaseConfig = {
   apiKey: "AIzaSyBFHcU7H24qU3OlJRdTe27ZxgwnFRzYxvE",
   authDomain: "love-18e03.firebaseapp.com",
@@ -21,9 +19,12 @@ const firebaseConfig = {
   appId: "1:716078539990:web:6198dd38a0cd3ad3369577"
 };
 
+// تهيئة تطبيق Firebase
 const app = initializeApp(firebaseConfig);
 
+// تصدير خدمات القاعدة والتخزين للاستخدام في بقية الملفات
 export const db = getFirestore(app);
 export const storage = getStorage(app);
 
+// تصدير الدوال الأساسية المستعملة في لوحة التحكم وصفحة العرض
 export { doc, setDoc, getDoc, onSnapshot };
