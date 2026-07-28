@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | لوحة التحكم</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin-style.css">
+</head>
+<body class="dashboard-page">
+
+  <!-- شريط التنقل العلوي -->
+  <header class="top-nav">
+    <button class="nav-btn btn-logout" onclick="location.href='index.html'">🚪 خروج</button>
+    <button class="nav-btn btn-preview" onclick="window.open('../index.html', '_blank')">👁 معاينة</button>
+  </header>
+
+  <main class="dashboard-container">
+    <div class="header-title-section">
+      <h1 class="main-dashboard-title">لوحة التحكم 💖✨</h1>
+      <p class="main-dashboard-sub">💕 عدّل كل حاجة من هنا اي وقت زي ما تحب</p>
+    </div>
+
+    <form id="dashboardForm">
+
+      <!-- قسم 1: اول صفحه -->
+      <section class="admin-section-card">
+        <h2 class="card-section-title">🔑🔐 اول صفحه</h2>
+        <div class="section-divider"></div>
+
+        <div class="form-group">
+          <label><span class="help-circle">?</span> عنوان الصفحة (Enter Password)</label>
+          <input type="text" id="pageTitle" value="شهوتي 💕💕">
+        </div>
+
+        <div class="form-group">
+          <label><span class="help-circle">?</span> النص الثاني (Our Love Story)</label>
+          <input type="text" id="subTitle" value="💕 Our Love Story">
+        </div>
+
+        <div class="form-group">
+          <label><span class="help-circle">?</span> باسورد الصفحة الرئيسية 🔑</label>
+          <input type="text" id="sitePassword" placeholder="ادخل باسورد الموقع الرئيسي">
+        </div>
+
+        <div class="form-group margin-top-20">
+          <label><span class="help-circle">?</span> 🖼 صورة دائرية في الاول (اختياري)</label>
+          <input type="text" id="heroImage" value="https://res.cloudinary.com/dvc3zpg1i/image/upload/v1784453237/clients/uk6oa8to4pctkyb9d7ob.jpg">
+        </div>
+      </section>
+
+      <!-- قسم 2: اول ماسدج -->
+      <section class="admin-section-card">
+        <h2 class="card-section-title">✉️ اول ماسدج</h2>
+        <div class="section-divider"></div>
+
+        <div class="form-group">
+          <label><span class="help-circle">?</span> العنوان (ينور عيني)</label>
+          <input type="text" id="msgTitle" value="ينور عيني 💕">
+        </div>
+
+        <div class="form-group">
+          <label><span class="help-circle">?</span> الرسالة الطويلة</label>
+          <textarea id="msgBody" rows="4">بحبك اوي يا حته مني ربنا يخليكي ليا يا شهوتي ونبقا سوا طول العمررر كلو يا اغلي ما ف حياتي😍💖</textarea>
+        </div>
+      </section>
+
+      <!-- قسم 3: التاريخ والعداد -->
+      <section class="admin-section-card">
+        <h2 class="card-section-title">⏰ التاريخ والعداد</h2>
+        <div class="section-divider"></div>
+
+        <div class="form-group">
+          <label><span class="help-circle">?</span> 📅 التاريخ (من إمتى سوا)</label>
+          <input type="text" id="startDate" value="2026-03-08">
+        </div>
+
+        <div class="form-group">
+          <label><span class="help-circle">?</span> النص تحت العداد</label>
+          <input type="text" id="counterSubText" value="كل ثانية بتعدي وانت في قلبي 💕">
+        </div>
+      </section>
+
+      <button type="submit" class="btn-save-all">💾 حفظ التغييرات على الفايربيس</button>
+    </form>
+  </main>
+
+  <!-- ربط مكتبات Firebase مع البيانات الخاصة بك -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBFHcU7H24qU3OlJRdTe27ZxgwnFRzYxvE",
+      authDomain: "love-18e03.firebaseapp.com",
+      projectId: "love-18e03",
+      storageBucket: "love-18e03.firebasestorage.app",
+      messagingSenderId: "716078539990",
+      appId: "1:716078539990:web:6198dd38a0cd3ad3369577",
+      measurementId: "G-TND3G03MEM"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const docRef = doc(db, "siteData", "mainConfig");
+
+    // جلب البيانات المخزنة فور فتح لوحة التحكم
+    async function loadAdminData() {
+      try {
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          if(data.pageTitle) document.getElementById('pageTitle').value = data.pageTitle;
+          if(data.subTitle) document.getElementById('subTitle').value = data.subTitle;
+          if(data.sitePassword) document.getElementById('sitePassword').value = data.sitePassword;
+          if(data.heroImage) document.getElementById('heroImage').value = data.heroImage;
+          if(data.msgTitle) document.getElementById('msgTitle').value = data.msgTitle;
+          if(data.msgBody) document.getElementById('msgBody').value = data.msgBody;
+          if(data.startDate) document.getElementById('startDate').value = data.startDate;
+          if(data.counterSubText) document.getElementById('counterSubText').value = data.counterSubText;
+        }
+      } catch (e) {
+        console.error("خطأ في قراءة البيانات من الفايربيس:", e);
+      }
+    }
+    loadAdminData();
+
+    // حفظ البيانات في الفايربيس عند الضغط على الزر
+    document.getElementById('dashboardForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const updatedData = {
+        pageTitle: document.getElementById('pageTitle').value,
+        subTitle: document.getElementById('subTitle').value,
+        sitePassword: document.getElementById('sitePassword').value,
+        heroImage: document.getElementById('heroImage').value,
+        msgTitle: document.getElementById('msgTitle').value,
+        msgBody: document.getElementById('msgBody').value,
+        startDate: document.getElementById('startDate').value,
+        counterSubText: document.getElementById('counterSubText').value,
+        updatedAt: new Date()
+      };
+
+      try {
+        await setDoc(docRef, updatedData, { merge: true });
+        alert("✨ تم حفظ التغييرات بنجاح وستظهر فوراً في الموقع الرئيسي!");
+      } catch (error) {
+        console.error("حدث خطأ أثناء الحفظ:", error);
+        alert("❌ تعذر الحفظ! تأكد من تغيير الـ Rules في Firebase إلى true.");
+      }
+    });
+  </script>
+</body>
+</html>

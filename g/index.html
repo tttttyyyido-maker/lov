@@ -22,7 +22,7 @@
     <div class="float-item">💜</div>
   </div>
 
-  <!-- 1. بوابه كلمة السر (تصميم القلب) -->
+  <!-- 1. بوابة كلمة السر (تصميم القلب) -->
   <div id="passwordOverlay" class="login-container">
     <div class="heart-container">
       <div class="big-heart"></div>
@@ -43,7 +43,6 @@
               <label for="passInput">Password</label>
               <input type="text" id="passInput" placeholder="password" required>
             </div>
-            <!-- تم تعديل نوع الزرار هنا إلى type="button" -->
             <button type="button" id="unlockBtn" class="login-btn"> Unlock </button>
           </form>
         </div>
@@ -70,12 +69,13 @@
       </div>
     </div>
 
-    <!-- 3. خطوة العداد والمشغل -->
+    <!-- 3. خطوة العداد والملاحظات والذكريات -->
     <div id="memoriesStep" class="step-container hidden">
       <p class="top-note">الهديه دي ليكي وبس ونفضل نضيف كل الي بينا هنا</p>
       
       <h2 class="section-title">بدايتنا❤️</h2>
       
+      <!-- العداد التنازلي -->
       <div class="countdown-card">
         <div class="countdown-grid">
           <div class="timer-box">
@@ -98,6 +98,68 @@
         <p class="countdown-subtext">كل ثانية بتعدي وانا ديما بفكر فيكي</p>
       </div>
 
+      <!-- خط الذكريات (Timeline) -->
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="date-badge">📅 2025-08-27</span>
+            <p class="timeline-text">فاكره يوم ما قولتلِك بحبك</p>
+          </div>
+          <div class="timeline-icon">🦋</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="date-badge">📅 2025-10-26</span>
+            <p class="timeline-text">اول خروجه سوا</p>
+          </div>
+          <div class="timeline-icon">🦋</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="date-badge">📅 2026-04-18</span>
+            <p class="timeline-text">يوم مميز لينا فاكراه؟</p>
+          </div>
+          <div class="timeline-icon">🦋</div>
+        </div>
+      </div>
+
+      <!-- معرض الصور البولاروايد -->
+      <div class="polaroid-gallery">
+        <div class="polaroid-frame">
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=800" alt="Memory Photo 1">
+        </div>
+        <div class="polaroid-frame">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=800" alt="Memory Photo 2">
+        </div>
+      </div>
+
+      <!-- كارت الرسالة السحابية -->
+      <div class="message-cloud-card">
+        <div class="cloud-content">
+          <p>عملت الهديه دي علشان نجمع فيها كل لحظاتنا سوا وهنفضل نضيف كل ذكرياتنا اللي بينا هنا.</p>
+          <p>كل حاجه فيكي مهما كانت بحبها، أنا بحبك قد إيه مش بيخلص بس اللي أقدر أقوله إني بحبك وعايزين نملى صورنا هنا، وده لينا إحنا وبس بحبككك وربنا يخليكي ليا ❤️</p>
+        </div>
+      </div>
+
+      <!-- شريط قياس الحب (Love Meter) -->
+      <div class="love-meter-section">
+        <h3 class="meter-title">عايزه تعرفي بحبك قد ايه؟</h3>
+        
+        <div class="meter-card">
+          <div class="meter-heart">💜</div>
+          
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="loveProgress" style="width: 0%;"></div>
+          </div>
+          
+          <p class="meter-status" id="loveStatusText">بحبك شويه 🤔</p>
+        </div>
+      </div>
+
       <!-- مشغل الأغاني -->
       <div class="music-player-card">
         <div class="player-info">
@@ -106,18 +168,83 @@
         </div>
         <div class="player-controls">
           <button class="control-btn">⏮</button>
-          <button class="control-btn play-btn">⏸</button>
+          <button class="control-btn play-btn" id="playPauseBtn">⏸</button>
           <button class="control-btn">⏭</button>
         </div>
       </div>
+
     </div>
 
   </div>
 
-<script src="js/firebase.js"></script>
-  <script src="js/helpers.js"></script>
-  <script src="js/ui.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/main.js"></script>
+  <!-- السكريبت الرئيسي للتفاعل -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const unlockBtn = document.getElementById('unlockBtn');
+      const passInput = document.getElementById('passInput');
+      const passwordOverlay = document.getElementById('passwordOverlay');
+      const mainContent = document.getElementById('mainContent');
+
+      if (unlockBtn) {
+        unlockBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          if (passInput.value.trim() === '123456') {
+            passwordOverlay.classList.add('hidden');
+            mainContent.classList.remove('hidden');
+          } else {
+            alert('كلمة السر غير صحيحة!');
+          }
+        });
+      }
+
+      // حركة زر "مش بتحبيني؟"
+      const noBtn = document.getElementById('noBtn');
+      if (noBtn) {
+        noBtn.addEventListener('mouseover', () => {
+          const x = Math.random() * (window.innerWidth - 200);
+          const y = Math.random() * (window.innerHeight - 100);
+          noBtn.style.position = 'fixed';
+          noBtn.style.left = `${x}px`;
+          noBtn.style.top = `${y}px`;
+        });
+      }
+    });
+
+    // إظهار قسم الذكريات وتشغيل أنيميشن قياس الحب
+    function showMemoriesSection() {
+      const questionStep = document.getElementById('loveQuestionStep');
+      const memoriesStep = document.getElementById('memoriesStep');
+      if (questionStep && memoriesStep) {
+        questionStep.classList.add('hidden');
+        memoriesStep.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        triggerLoveMeter();
+      }
+    }
+
+    // أنيميشن الـ Love Meter
+    function triggerLoveMeter() {
+      const fill = document.getElementById('loveProgress');
+      const text = document.getElementById('loveStatusText');
+      
+      if (fill && text) {
+        let width = 0;
+        const interval = setInterval(() => {
+          if (width >= 100) {
+            clearInterval(interval);
+            text.innerText = "بحبك للمالانهاية! 💖✨";
+          } else {
+            width += 2;
+            fill.style.width = width + '%';
+            if (width < 35) text.innerText = "بحبك شويه 🤔";
+            else if (width < 75) text.innerText = "بحبك كتير قوي 😍";
+            else text.innerText = "بحبك اعلى حاجة في الدنيا! ❤️";
+          }
+        }, 30);
+      }
+    }
+  </script>
+
 </body>
 </html>

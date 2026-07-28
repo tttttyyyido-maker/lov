@@ -1,4 +1,4 @@
-*{margin:0;padding:0;box-sizing:border-box}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   font-family: 'Cairo', sans-serif;
@@ -54,7 +54,7 @@ body {
 .float-item:nth-child(4){left:58%;font-size:28px;animation-delay:7s;animation-duration:16s}
 .float-item:nth-child(5){left:74%;font-size:36px;animation-delay:1s;animation-duration:15s}
 
-/* تصميم تسجيل الدخول (القلب الكبير) */
+/* 1. تصميم شاشة القلب واختبار الباسوورد */
 .login-container {
   position: relative;
   z-index: 2;
@@ -169,7 +169,7 @@ body {
 .choice-icon { font-size: 2.5em; display: block; margin-bottom: 8px; }
 .choice-text { font-size: 1.2em; font-weight: 800; color: #4B2C6E; margin: 0; }
 
-/* 3. كارت العداد والمشغل */
+/* 3. كارت العداد والمشغل والمحتوى الرئيسي */
 .top-note { color: #7B54A8; font-weight: 700; font-size: 1.1em; text-align: center; margin-bottom: 25px; }
 .section-title { color: #4B2C6E; font-size: 2.2em; font-weight: 900; text-align: center; margin-bottom: 20px; }
 
@@ -185,6 +185,186 @@ body {
 .timer-label { font-size: 0.85em; opacity: 0.9; font-weight: 600; }
 .countdown-subtext { color: #4B2C6E; font-size: 1.05em; font-weight: 700; margin: 0; }
 
+/* 4. TIMELINE */
+.timeline-container {
+  position: relative;
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 10px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 25px;
+  width: 3px;
+  background: rgba(182, 146, 224, 0.4);
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.timeline-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 15px 20px;
+  width: calc(100% - 60px);
+  margin-right: auto;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 20px rgba(158, 119, 206, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date-badge {
+  background: #EAE0F8;
+  color: #7B54A8;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.timeline-text {
+  color: #4B2C6E;
+  font-weight: 800;
+  font-size: 1.05em;
+  margin: 0;
+}
+
+.timeline-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #B692E0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  position: absolute;
+  right: 6px;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(158, 119, 206, 0.2);
+}
+
+/* 5. POLAROID GALLERY */
+.polaroid-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 40px auto;
+}
+
+.polaroid-frame {
+  background: #ffffff;
+  padding: 15px 15px 45px 15px;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transform: rotate(-2deg);
+  max-width: 380px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.polaroid-frame:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.polaroid-frame img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* 6. MESSAGE CLOUD CARD */
+.message-cloud-card {
+  background: linear-gradient(135deg, #B692E0, #8A5FBE);
+  border-radius: 28px;
+  padding: 35px 25px;
+  max-width: 550px;
+  margin: 40px auto;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(140, 95, 190, 0.25);
+  color: #ffffff;
+  text-align: center;
+}
+
+.cloud-content p {
+  font-size: 1.1em;
+  font-weight: 700;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+/* 7. LOVE METER */
+.love-meter-section {
+  text-align: center;
+  margin: 40px auto 30px auto;
+  max-width: 550px;
+}
+
+.meter-title {
+  color: #4B2C6E;
+  font-size: 1.8em;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.meter-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  border-radius: 28px;
+  padding: 30px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 30px rgba(158, 119, 206, 0.15);
+}
+
+.meter-heart {
+  font-size: 3.5em;
+  margin-bottom: 15px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.progress-bar-container {
+  width: 100%;
+  height: 18px;
+  background: #EAE0F8;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 15px 0;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #B692E0, #8A5FBE);
+  border-radius: 10px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.meter-status {
+  color: #4B2C6E;
+  font-weight: 800;
+  font-size: 1.1em;
+  margin-top: 10px;
+}
+
+/* 8. MUSIC PLAYER */
 .music-player-card {
   background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px);
   border-radius: 22px; padding: 15px 25px; display: flex; align-items: center;

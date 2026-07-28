@@ -3,251 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>لوحة التحكم | إدارة الذكريات ✨</title>
-  
-  <!-- Google Fonts & FontAwesome Icons -->
+  <title id="siteTitle">قصتنا 💕</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Admin Stylesheet -->
-  <link rel="stylesheet" href="../css/admin.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #FFCBD7;
+      color: #7A2846;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    h1 { color: #C03960; margin-bottom: 10px; }
+    p { margin-bottom: 15px; font-weight: 600; }
+    .hero-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #FF85A2;
+      margin: 15px 0;
+    }
+    .message-box {
+      background: #FFF0F3;
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px dashed #FF85A2;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Admin Login Overlay -->
-  <div id="adminLoginOverlay" class="admin-login-overlay">
-    <div class="admin-login-card">
-      <div class="admin-logo">
-        <i class="fa-solid fa-user-shield"></i>
-      </div>
-      <h2>لوحة الإدارة 🔐</h2>
-      <p>أدخل كلمة السر الخاصة بالمسؤول للوصول للوحة التحكم</p>
-      
-      <form id="adminLoginForm" onsubmit="return false;">
-        <div class="form-group">
-          <input type="password" id="adminPassInput" placeholder="كلمة المرور" required>
-        </div>
-        <button type="submit" id="adminLoginBtn" class="btn-primary" style="width: 100%;">
-          <span>تسجيل الدخول</span> <i class="fa-solid fa-right-to-bracket"></i>
-        </button>
-      </form>
+  <div class="container">
+    <h1 id="displayPageTitle">جاري التحميل...</h1>
+    <p id="displaySubTitle">💕 Our Love Story</p>
+    
+    <img id="displayHeroImage" src="" class="hero-img" alt="صورة" style="display:none;">
+
+    <div class="message-box">
+      <h2 id="displayMsgTitle" style="color: #C03960; margin-bottom: 10px;">...</h2>
+      <p id="displayMsgBody">...</p>
+    </div>
+
+    <div style="margin-top:25px;">
+      <p id="displayCounterSub">...</p>
     </div>
   </div>
 
-  <!-- Admin Main Layout -->
-  <div id="adminDashboard" class="admin-wrapper hidden">
-    
-    <!-- Sidebar Navigation -->
-    <aside class="admin-sidebar">
-      <div class="sidebar-header">
-        <i class="fa-solid fa-heart-pulse"></i>
-        <h2>لوحة التحكم</h2>
-      </div>
-      <ul class="sidebar-menu">
-        <li>
-          <a href="#settingsSection" class="active" data-target="settingsSection">
-            <i class="fa-solid fa-sliders"></i> <span>الإعدادات العامة</span>
-          </a>
-        </li>
-        <li>
-          <a href="#sentencesSection" data-target="sentencesSection">
-            <i class="fa-solid fa-envelope-open-text"></i> <span>الرسائل والعبارات</span>
-          </a>
-        </li>
-        <li>
-          <a href="#photosSection" data-target="photosSection">
-            <i class="fa-solid fa-image"></i> <span>معرض الصور</span>
-          </a>
-        </li>
-        <li>
-          <a href="#videosSection" data-target="videosSection">
-            <i class="fa-solid fa-video"></i> <span>الفيديوهات</span>
-          </a>
-        </li>
-        <li>
-          <a href="../index.html" target="_blank">
-            <i class="fa-solid fa-globe"></i> <span>معاينة الموقع</span>
-          </a>
-        </li>
-      </ul>
-      <div class="sidebar-footer">
-        <button id="adminLogoutBtn" class="btn-logout">
-          <i class="fa-solid fa-power-off"></i> <span>خروج</span>
-        </button>
-      </div>
-    </aside>
+  <!-- ربط استقبال التحديثات اللحظية من Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    <!-- Main Admin Content -->
-    <main class="admin-content">
-      
-      <div class="admin-header-title">
-        <h1>إدارة محتوى الموقع ✨</h1>
-      </div>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBFHcU7H24qU3OlJRdTe27ZxgwnFRzYxvE",
+      authDomain: "love-18e03.firebaseapp.com",
+      projectId: "love-18e03",
+      storageBucket: "love-18e03.firebasestorage.app",
+      messagingSenderId: "716078539990",
+      appId: "1:716078539990:web:6198dd38a0cd3ad3369577",
+      measurementId: "G-TND3G03MEM"
+    };
 
-      <!-- 1. General Settings Section -->
-      <section id="settingsSection" class="admin-card">
-        <div class="admin-card-header">
-          <h3><i class="fa-solid fa-gear"></i> الإعدادات الأساسية والعد التنازلي</h3>
-        </div>
-        <form id="generalSettingsForm">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="siteTitleInput">عنوان الموقع الرئيسي</label>
-              <input type="text" id="siteTitleInput" placeholder="مثال: ذكرياتنا الجميلة">
-            </div>
-            <div class="form-group">
-              <label for="gatePasswordInput">كلمة سر الدخول للموقع</label>
-              <input type="text" id="gatePasswordInput" placeholder="كلمة المرور">
-            </div>
-            <div class="form-group">
-              <label for="heroTitleInput">عنوان الـ Hero الرئيسي</label>
-              <input type="text" id="heroTitleInput" placeholder="أهلاً بكِ يا أميرتي">
-            </div>
-            <div class="form-group">
-              <label for="targetDateInput">تاريخ العد التنازلي القادم</label>
-              <input type="datetime-local" id="targetDateInput">
-            </div>
-            <div class="form-group full-width">
-              <label for="heroDescInput">الوصف الرئيسي</label>
-              <textarea id="heroDescInput" rows="3" placeholder="أكتبي رسالة قصيرة تظهر في بداية الموقع..."></textarea>
-            </div>
-          </div>
-          <button type="submit" class="btn-primary">
-            <i class="fa-solid fa-floppy-disk"></i> حفظ الإعدادات
-          </button>
-        </form>
-      </section>
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-      <!-- 2. Sentences Section -->
-      <section id="sentencesSection" class="admin-card">
-        <div class="admin-card-header">
-          <h3><i class="fa-solid fa-comment-dots"></i> إضافة عبارة / رسالة جديدة</h3>
-        </div>
-        <form id="addSentenceForm">
-          <div class="form-group full-width">
-            <label for="sentenceTextInput">نص الرسالة</label>
-            <textarea id="sentenceTextInput" placeholder="اكتب العبارة أو الرسالة هنا..." required></textarea>
-          </div>
-          <button type="submit" class="btn-primary">
-            <i class="fa-solid fa-plus"></i> إضافة العبارة
-          </button>
-        </form>
+    // الاستماع الحقيقي المباشر (Realtime Listener)
+    onSnapshot(doc(db, "siteData", "mainConfig"), (docSnap) => {
+      if (docSnap.exists()) {
+        const data = docSnap.data();
 
-        <div style="margin-top: 30px;">
-          <h4 style="margin-bottom: 15px; color: var(--dark-purple);">العبارات الحالية:</h4>
-          <div class="table-responsive">
-            <table class="admin-table">
-              <thead>
-                <tr>
-                  <th>الرسالة</th>
-                  <th>التاريخ</th>
-                  <th>إجراءات</th>
-                </tr>
-              </thead>
-              <tbody id="sentencesTableBody">
-                <!-- Dynamically populated -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. Photos Section -->
-      <section id="photosSection" class="admin-card">
-        <div class="admin-card-header">
-          <h3><i class="fa-solid fa-cloud-arrow-up"></i> رفع صورة جديدة</h3>
-        </div>
-        <form id="uploadPhotoForm">
-          <div class="form-group">
-            <label for="photoTitleInput">عنوان الصورة / وصف قصير</label>
-            <input type="text" id="photoTitleInput" placeholder="عنوان الصورة">
-          </div>
-          <div class="form-group full-width">
-            <div class="file-upload-box">
-              <i class="fa-solid fa-images"></i>
-              <p>اضغط هنا أو اسحب الصورة لرفعها</p>
-              <input type="file" id="photoFileInput" accept="image/*" required>
-            </div>
-            <div class="progress-bar-container hidden" id="photoProgressWrap">
-              <div class="progress-bar-fill" id="photoProgressBar"></div>
-            </div>
-          </div>
-          <button type="submit" class="btn-primary">
-            <i class="fa-solid fa-upload"></i> رفع الصورة
-          </button>
-        </form>
-
-        <div style="margin-top: 30px;">
-          <h4 style="margin-bottom: 15px; color: var(--dark-purple);">الصور المرفوعة:</h4>
-          <div class="table-responsive">
-            <table class="admin-table">
-              <thead>
-                <tr>
-                  <th>المعاينة</th>
-                  <th>العنوان</th>
-                  <th>إجراءات</th>
-                </tr>
-              </thead>
-              <tbody id="photosTableBody">
-                <!-- Dynamically populated -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <!-- 4. Videos Section -->
-      <section id="videosSection" class="admin-card">
-        <div class="admin-card-header">
-          <h3><i class="fa-solid fa-film"></i> رفع فيديو جديد</h3>
-        </div>
-        <form id="uploadVideoForm">
-          <div class="form-group">
-            <label for="videoTitleInput">عنوان الفيديو</label>
-            <input type="text" id="videoTitleInput" placeholder="عنوان الفيديو">
-          </div>
-          <div class="form-group full-width">
-            <div class="file-upload-box">
-              <i class="fa-solid fa-file-video"></i>
-              <p>اضغط هنا أو اسحب الفيديو لرفعه</p>
-              <input type="file" id="videoFileInput" accept="video/*" required>
-            </div>
-            <div class="progress-bar-container hidden" id="videoProgressWrap">
-              <div class="progress-bar-fill" id="videoProgressBar"></div>
-            </div>
-          </div>
-          <button type="submit" class="btn-primary">
-            <i class="fa-solid fa-upload"></i> رفع الفيديو
-          </button>
-        </form>
-
-        <div style="margin-top: 30px;">
-          <h4 style="margin-bottom: 15px; color: var(--dark-purple);">الفيديوهات المرفوعة:</h4>
-          <div class="table-responsive">
-            <table class="admin-table">
-              <thead>
-                <tr>
-                  <th>العنوان</th>
-                  <th>الرابط</th>
-                  <th>إجراءات</th>
-                </tr>
-              </thead>
-              <tbody id="videosTableBody">
-                <!-- Dynamically populated -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- Firebase & Admin JS Scripts -->
-  <script type="module" src="../js/firebase.js"></script>
-  <script type="module" src="../js/helpers.js"></script>
-  <script type="module" src="../js/admin.js"></script>
+        if (data.pageTitle) {
+          document.title = data.pageTitle;
+          document.getElementById('displayPageTitle').textContent = data.pageTitle;
+        }
+        if (data.subTitle) document.getElementById('displaySubTitle').textContent = data.subTitle;
+        if (data.msgTitle) document.getElementById('displayMsgTitle').textContent = data.msgTitle;
+        if (data.msgBody) document.getElementById('displayMsgBody').textContent = data.msgBody;
+        if (data.counterSubText) document.getElementById('displayCounterSub').textContent = data.counterSubText;
+        
+        if (data.heroImage) {
+          const imgEl = document.getElementById('displayHeroImage');
+          imgEl.src = data.heroImage;
+          imgEl.style.display = 'inline-block';
+        }
+      }
+    });
+  </script>
 </body>
 </html>
