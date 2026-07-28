@@ -3,248 +3,251 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>لوحة التحكم - إدارة الموقع</title>
-
-  <!-- SEO & Favicon -->
-  <meta name="description" content="لوحة تحكم إدارة محتوى الموقع">
-  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Google Fonts (Tajawal) -->
+  <title>لوحة التحكم | إدارة الذكريات ✨</title>
+  
+  <!-- Google Fonts & FontAwesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-
-  <!-- Custom Stylesheets -->
-  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Admin Stylesheet -->
   <link rel="stylesheet" href="../css/admin.css">
 </head>
-<body class="admin-body">
+<body>
 
-  <!-- Screen Loading Overlay -->
-  <div id="loading-screen" class="loading-screen">
-    <div class="spinner"></div>
-    <p id="loading-text">جاري تحميل بيانات لوحة التحكم...</p>
+  <!-- Admin Login Overlay -->
+  <div id="adminLoginOverlay" class="admin-login-overlay">
+    <div class="admin-login-card">
+      <div class="admin-logo">
+        <i class="fa-solid fa-user-shield"></i>
+      </div>
+      <h2>لوحة الإدارة 🔐</h2>
+      <p>أدخل كلمة السر الخاصة بالمسؤول للوصول للوحة التحكم</p>
+      
+      <form id="adminLoginForm" onsubmit="return false;">
+        <div class="form-group">
+          <input type="password" id="adminPassInput" placeholder="كلمة المرور" required>
+        </div>
+        <button type="submit" id="adminLoginBtn" class="btn-primary" style="width: 100%;">
+          <span>تسجيل الدخول</span> <i class="fa-solid fa-right-to-bracket"></i>
+        </button>
+      </form>
+    </div>
   </div>
 
-  <!-- Admin Main Wrapper -->
-  <div class="admin-wrapper">
-
+  <!-- Admin Main Layout -->
+  <div id="adminDashboard" class="admin-wrapper hidden">
+    
     <!-- Sidebar Navigation -->
     <aside class="admin-sidebar">
       <div class="sidebar-header">
-        <i class="fa-solid fa-heart-pulse logo-icon"></i>
+        <i class="fa-solid fa-heart-pulse"></i>
         <h2>لوحة التحكم</h2>
       </div>
-      <nav class="sidebar-nav">
-        <ul>
-          <li><a href="#section-general" class="nav-item active"><i class="fa-solid fa-sliders"></i> الإعدادات العامة</a></li>
-          <li><a href="#section-hero" class="nav-item"><i class="fa-solid fa-star"></i> قسم Hero والواجهة</a></li>
-          <li><a href="#section-countdown" class="nav-item"><i class="fa-solid fa-clock"></i> العداد والمناسبة</a></li>
-          <li><a href="#section-sentences" class="nav-item"><i class="fa-solid fa-align-right"></i> الجمل والعبارات</a></li>
-          <li><a href="#section-captions" class="nav-item"><i class="fa-solid fa-calendar-days"></i> الكابشنات مع التاريخ</a></li>
-          <li><a href="#section-photos" class="nav-item"><i class="fa-solid fa-image"></i> معرض الصور</a></li>
-          <li><a href="#section-videos" class="nav-item"><i class="fa-solid fa-video"></i> فيديوهات الذكريات</a></li>
-          <li><a href="#section-songs" class="nav-item"><i class="fa-solid fa-music"></i> المقاطع الصوتية</a></li>
-        </ul>
-      </nav>
+      <ul class="sidebar-menu">
+        <li>
+          <a href="#settingsSection" class="active" data-target="settingsSection">
+            <i class="fa-solid fa-sliders"></i> <span>الإعدادات العامة</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sentencesSection" data-target="sentencesSection">
+            <i class="fa-solid fa-envelope-open-text"></i> <span>الرسائل والعبارات</span>
+          </a>
+        </li>
+        <li>
+          <a href="#photosSection" data-target="photosSection">
+            <i class="fa-solid fa-image"></i> <span>معرض الصور</span>
+          </a>
+        </li>
+        <li>
+          <a href="#videosSection" data-target="videosSection">
+            <i class="fa-solid fa-video"></i> <span>الفيديوهات</span>
+          </a>
+        </li>
+        <li>
+          <a href="../index.html" target="_blank">
+            <i class="fa-solid fa-globe"></i> <span>معاينة الموقع</span>
+          </a>
+        </li>
+      </ul>
       <div class="sidebar-footer">
-        <a href="../index.html" class="btn-secondary btn-block" target="_blank"><i class="fa-solid fa-globe"></i> معاينة الموقع</a>
-        <button id="logout-btn" class="btn-danger btn-block"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</button>
+        <button id="adminLogoutBtn" class="btn-logout">
+          <i class="fa-solid fa-power-off"></i> <span>خروج</span>
+        </button>
       </div>
     </aside>
 
-    <!-- Main Content Area -->
-    <main class="admin-main">
+    <!-- Main Admin Content -->
+    <main class="admin-content">
       
-      <!-- Top Bar Header -->
-      <header class="admin-header">
-        <div class="header-title">
-          <h1>إدارة المحتوى</h1>
-          <p>قم بتعديل وحفظ المحتوى وسيتم تحديثه في Firestore فورًا</p>
-        </div>
-        <div class="header-actions">
-          <button id="save-all-btn" class="btn-primary"><i class="fa-solid fa-floppy-disk"></i> حفظ كافة التعديلات</button>
-        </div>
-      </header>
-
-      <!-- Toast / Alert Notification Container -->
-      <div id="toast-container" class="toast-container"></div>
-
-      <!-- Upload Progress Global Modal/Bar -->
-      <div id="upload-progress-card" class="upload-progress-card hidden">
-        <div class="progress-info">
-          <span id="progress-file-name">جاري رفع الملف...</span>
-          <span id="progress-percent">0%</span>
-        </div>
-        <div class="progress-bar-bg">
-          <div id="progress-bar-fill" class="progress-bar-fill" style="width: 0%;"></div>
-        </div>
+      <div class="admin-header-title">
+        <h1>إدارة محتوى الموقع ✨</h1>
       </div>
 
-      <!-- Main Form for Administration -->
-      <form id="admin-main-form" class="admin-form-content">
-
-        <!-- 1. General Settings Section -->
-        <section id="section-general" class="admin-card">
-          <div class="card-header">
-            <h3><i class="fa-solid fa-sliders"></i> إعدادات صفحة الدخول والدخول العام</h3>
-          </div>
-          <div class="card-body grid-2">
-            <div class="form-group">
-              <label for="login_title">عنوان صفحة الدخول</label>
-              <input type="text" id="login_title" name="login_title" class="form-control" placeholder="مثال: مرحبًا بك">
-            </div>
-            <div class="form-group">
-              <label for="login_subtitle">النص الفرعي لصفحة الدخول</label>
-              <input type="text" id="login_subtitle" name="login_subtitle" class="form-control" placeholder="أدخل الوصف الفرعي">
-            </div>
-            <div class="form-group">
-              <label for="client_password">كلمة سر الزوار (حمى الصفحة الرئيسية)</label>
-              <input type="text" id="client_password" name="client_password" class="form-control" placeholder="كلمة السر لفتح الموقع">
-            </div>
-            <div class="form-group">
-              <label>صورة صفحة الدخول (login_photo)</label>
-              <div class="file-upload-wrapper">
-                <input type="file" id="login_photo_file" accept="image/*" class="file-input">
-                <input type="hidden" id="login_photo_url">
-                <div class="preview-box">
-                  <img id="login_photo_preview" src="../assets/placeholder-login.jpg" alt="معاينة الصورة" class="img-preview">
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 2. Hero Section Settings -->
-        <section id="section-hero" class="admin-card">
-          <div class="card-header">
-            <h3><i class="fa-solid fa-star"></i> قسم الواجهة الرئيسية (Hero Section)</h3>
-          </div>
-          <div class="card-body grid-2">
-            <div class="form-group">
-              <label for="hero_badge">شارة الواجهة (Hero Badge)</label>
-              <input type="text" id="hero_badge" name="hero_badge" class="form-control" placeholder="مثال: حكايتنا معًا">
-            </div>
-            <div class="form-group">
-              <label for="main_title">العنوان الرئيسي (Main Title)</label>
-              <input type="text" id="main_title" name="main_title" class="form-control" placeholder="عنوان القصة الرئيسي">
-            </div>
-            <div class="form-group full-width">
-              <label for="main_message">الرسالة الرئيسية (Main Message)</label>
-              <textarea id="main_message" name="main_message" rows="4" class="form-control" placeholder="اكتب الرسالة الرئيسية هنا..."></textarea>
-            </div>
-            <div class="form-group full-width">
-              <label>صورة الواجهة الرئيسية (hero_photo)</label>
-              <div class="file-upload-wrapper">
-                <input type="file" id="hero_photo_file" accept="image/*" class="file-input">
-                <input type="hidden" id="hero_photo_url">
-                <div class="preview-box">
-                  <img id="hero_photo_preview" src="../assets/placeholder-hero.jpg" alt="معاينة صورة الواجهة" class="img-preview">
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- 3. Countdown & Event Settings -->
-        <section id="section-countdown" class="admin-card">
-          <div class="card-header">
-            <h3><i class="fa-solid fa-clock"></i> إعدادات العداد والمناسبة</h3>
-          </div>
-          <div class="card-body grid-2">
-            <div class="form-group">
-              <label for="page2_title">عنوان قسم العداد</label>
-              <input type="text" id="page2_title" name="page2_title" class="form-control" placeholder="مثال: مرت على لقائنا">
-            </div>
-            <div class="form-group">
-              <label for="date">تاريخ المناسبة / بداية العداد</label>
-              <input type="datetime-local" id="date" name="date" class="form-control">
-            </div>
-            <div class="form-group full-width">
-              <label for="countdown_sub">الوصف الفرعي للعداد (countdown_sub)</label>
-              <input type="text" id="countdown_sub" name="countdown_sub" class="form-control" placeholder="عبارة تعبيرية تحت العداد">
-            </div>
-          </div>
-        </section>
-
-        <!-- 4. Sentences Array Manager -->
-        <section id="section-sentences" class="admin-card">
-          <div class="card-header flex-between">
-            <h3><i class="fa-solid fa-align-right"></i> إدارة الجمل والعبارات (sentences)</h3>
-            <button type="button" id="add-sentence-btn" class="btn-sm btn-success"><i class="fa-solid fa-plus"></i> إضافة جملة</button>
-          </div>
-          <div class="card-body">
-            <div id="sentences-container" class="dynamic-list-container">
-              <!-- Dynamic Sentence Rows injected by admin.js -->
-            </div>
-          </div>
-        </section>
-
-        <!-- 5. Captions with Date Array Manager -->
-        <section id="section-captions" class="admin-card">
-          <div class="card-header flex-between">
-            <h3><i class="fa-solid fa-calendar-days"></i> إدارة الكابشنات والتوارخ (captions)</h3>
-            <button type="button" id="add-caption-btn" class="btn-sm btn-success"><i class="fa-solid fa-plus"></i> إضافة كابشن جديد</button>
-          </div>
-          <div class="card-body">
-            <div id="captions-container" class="dynamic-list-container">
-              <!-- Dynamic Caption Rows injected by admin.js -->
-            </div>
-          </div>
-        </section>
-
-        <!-- 6. Photos Array Manager -->
-        <section id="section-photos" class="admin-card">
-          <div class="card-header flex-between">
-            <h3><i class="fa-solid fa-image"></i> إدارة معرض الصور مع الوصف (photos)</h3>
-            <button type="button" id="add-photo-btn" class="btn-sm btn-success"><i class="fa-solid fa-plus"></i> إضافة صورة جديدة</button>
-          </div>
-          <div class="card-body">
-            <div id="photos-container" class="dynamic-media-grid">
-              <!-- Dynamic Photo Cards injected by admin.js -->
-            </div>
-          </div>
-        </section>
-
-        <!-- 7. Videos Array Manager -->
-        <section id="section-videos" class="admin-card">
-          <div class="card-header flex-between">
-            <h3><i class="fa-solid fa-video"></i> إدارة فيديوهات الذكريات (videos)</h3>
-            <button type="button" id="add-video-btn" class="btn-sm btn-success"><i class="fa-solid fa-plus"></i> إضافة فيديو جديد</button>
-          </div>
-          <div class="card-body">
-            <div id="videos-container" class="dynamic-media-grid">
-              <!-- Dynamic Video Cards injected by admin.js -->
-            </div>
-          </div>
-        </section>
-
-        <!-- 8. Songs Array Manager -->
-        <section id="section-songs" class="admin-card">
-          <div class="card-header flex-between">
-            <h3><i class="fa-solid fa-music"></i> إدارة الأغاني والمقاطع الصوتية (songs)</h3>
-            <button type="button" id="add-song-btn" class="btn-sm btn-success"><i class="fa-solid fa-plus"></i> إضافة مقطع صوتي</button>
-          </div>
-          <div class="card-body">
-            <div id="songs-container" class="dynamic-media-list">
-              <!-- Dynamic Song Items injected by admin.js -->
-            </div>
-          </div>
-        </section>
-
-        <!-- Save Button Bottom Anchor -->
-        <div class="admin-footer-actions text-center">
-          <button type="submit" class="btn-primary btn-large"><i class="fa-solid fa-floppy-disk"></i> حفظ كافة التعديلات في Firestore</button>
+      <!-- 1. General Settings Section -->
+      <section id="settingsSection" class="admin-card">
+        <div class="admin-card-header">
+          <h3><i class="fa-solid fa-gear"></i> الإعدادات الأساسية والعد التنازلي</h3>
         </div>
+        <form id="generalSettingsForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="siteTitleInput">عنوان الموقع الرئيسي</label>
+              <input type="text" id="siteTitleInput" placeholder="مثال: ذكرياتنا الجميلة">
+            </div>
+            <div class="form-group">
+              <label for="gatePasswordInput">كلمة سر الدخول للموقع</label>
+              <input type="text" id="gatePasswordInput" placeholder="كلمة المرور">
+            </div>
+            <div class="form-group">
+              <label for="heroTitleInput">عنوان الـ Hero الرئيسي</label>
+              <input type="text" id="heroTitleInput" placeholder="أهلاً بكِ يا أميرتي">
+            </div>
+            <div class="form-group">
+              <label for="targetDateInput">تاريخ العد التنازلي القادم</label>
+              <input type="datetime-local" id="targetDateInput">
+            </div>
+            <div class="form-group full-width">
+              <label for="heroDescInput">الوصف الرئيسي</label>
+              <textarea id="heroDescInput" rows="3" placeholder="أكتبي رسالة قصيرة تظهر في بداية الموقع..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">
+            <i class="fa-solid fa-floppy-disk"></i> حفظ الإعدادات
+          </button>
+        </form>
+      </section>
 
-      </form>
+      <!-- 2. Sentences Section -->
+      <section id="sentencesSection" class="admin-card">
+        <div class="admin-card-header">
+          <h3><i class="fa-solid fa-comment-dots"></i> إضافة عبارة / رسالة جديدة</h3>
+        </div>
+        <form id="addSentenceForm">
+          <div class="form-group full-width">
+            <label for="sentenceTextInput">نص الرسالة</label>
+            <textarea id="sentenceTextInput" placeholder="اكتب العبارة أو الرسالة هنا..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">
+            <i class="fa-solid fa-plus"></i> إضافة العبارة
+          </button>
+        </form>
+
+        <div style="margin-top: 30px;">
+          <h4 style="margin-bottom: 15px; color: var(--dark-purple);">العبارات الحالية:</h4>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>الرسالة</th>
+                  <th>التاريخ</th>
+                  <th>إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="sentencesTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Photos Section -->
+      <section id="photosSection" class="admin-card">
+        <div class="admin-card-header">
+          <h3><i class="fa-solid fa-cloud-arrow-up"></i> رفع صورة جديدة</h3>
+        </div>
+        <form id="uploadPhotoForm">
+          <div class="form-group">
+            <label for="photoTitleInput">عنوان الصورة / وصف قصير</label>
+            <input type="text" id="photoTitleInput" placeholder="عنوان الصورة">
+          </div>
+          <div class="form-group full-width">
+            <div class="file-upload-box">
+              <i class="fa-solid fa-images"></i>
+              <p>اضغط هنا أو اسحب الصورة لرفعها</p>
+              <input type="file" id="photoFileInput" accept="image/*" required>
+            </div>
+            <div class="progress-bar-container hidden" id="photoProgressWrap">
+              <div class="progress-bar-fill" id="photoProgressBar"></div>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">
+            <i class="fa-solid fa-upload"></i> رفع الصورة
+          </button>
+        </form>
+
+        <div style="margin-top: 30px;">
+          <h4 style="margin-bottom: 15px; color: var(--dark-purple);">الصور المرفوعة:</h4>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>المعاينة</th>
+                  <th>العنوان</th>
+                  <th>إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="photosTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Videos Section -->
+      <section id="videosSection" class="admin-card">
+        <div class="admin-card-header">
+          <h3><i class="fa-solid fa-film"></i> رفع فيديو جديد</h3>
+        </div>
+        <form id="uploadVideoForm">
+          <div class="form-group">
+            <label for="videoTitleInput">عنوان الفيديو</label>
+            <input type="text" id="videoTitleInput" placeholder="عنوان الفيديو">
+          </div>
+          <div class="form-group full-width">
+            <div class="file-upload-box">
+              <i class="fa-solid fa-file-video"></i>
+              <p>اضغط هنا أو اسحب الفيديو لرفعه</p>
+              <input type="file" id="videoFileInput" accept="video/*" required>
+            </div>
+            <div class="progress-bar-container hidden" id="videoProgressWrap">
+              <div class="progress-bar-fill" id="videoProgressBar"></div>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">
+            <i class="fa-solid fa-upload"></i> رفع الفيديو
+          </button>
+        </form>
+
+        <div style="margin-top: 30px;">
+          <h4 style="margin-bottom: 15px; color: var(--dark-purple);">الفيديوهات المرفوعة:</h4>
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>العنوان</th>
+                  <th>الرابط</th>
+                  <th>إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="videosTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
     </main>
   </div>
 
-  <!-- Admin Application Logic Script Entry Point -->
+  <!-- Firebase & Admin JS Scripts -->
+  <script type="module" src="../js/firebase.js"></script>
+  <script type="module" src="../js/helpers.js"></script>
   <script type="module" src="../js/admin.js"></script>
 </body>
 </html>
