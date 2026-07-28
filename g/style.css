@@ -1,119 +1,32 @@
-/* ==========================================================================
-   1. VARIABLES & RESET (LAVENDER / PURPLE THEME)
-   ========================================================================== */
-:root {
-  /* Soft Purple & Lavender Palette */
-  --primary-color: #9E77CE;
-  --primary-hover: #8A63BC;
-  --primary-light: #B692E0;
-  --secondary-color: #EDE4FA;
-  --accent-color: #D9B8F0;
-  --dark-purple: #4B2C6E;
-  --text-muted: #7B54A8;
-  --card-bg: rgba(255, 252, 255, 0.85);
-  --border-color: rgba(140, 95, 190, 0.25);
-  
-  /* Status Colors */
-  --success-color: #2a9d8f;
-  --danger-color: #8B2555;
-
-  /* Typography */
-  --font-family: 'Cairo', 'Tajawal', sans-serif;
-  
-  /* Radii & Shadows */
-  --radius-sm: 14px;
-  --radius-md: 20px;
-  --radius-lg: 30px;
-  --shadow-purple: 0 10px 40px rgba(140, 95, 190, 0.25);
-  --shadow-glow: 0 0 30px rgba(190, 150, 230, 0.35);
-
-  --transition-normal: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body {
-  font-family: var(--font-family);
+  font-family: 'Cairo', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
-  direction: rtl;
-  text-align: right;
-  color: var(--dark-purple);
   background: linear-gradient(135deg, #EDE4FA, #F6EFFC 25%, #E4D6F5 50%, #F3EAFB 75%, #E9DFF7);
   background-size: 400% 400%;
-  animation: bgAnimation 20s ease infinite;
-  position: relative;
+  animation: bg 20s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  direction: rtl;
 }
 
-@keyframes bgAnimation {
+@keyframes bg {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
 
-/* Ambient Ambient Blobs */
-body::before, body::after {
-  content: '';
-  position: fixed;
-  border-radius: 50%;
-  z-index: 0;
-  pointer-events: none;
-  filter: blur(60px);
-  opacity: 0.5;
-}
+.hidden { display: none !important; opacity: 0; }
 
-body::before {
-  width: 45vw;
-  height: 45vw;
-  top: -12vw;
-  right: -10vw;
-  background: radial-gradient(circle, #D9B8F0, transparent 70%);
-  animation: blobAnim 12s ease-in-out infinite alternate;
-}
-
-body::after {
-  width: 40vw;
-  height: 40vw;
-  bottom: -10vw;
-  left: -8vw;
-  background: radial-gradient(circle, #C0A6E8, transparent 70%);
-  animation: blobAnim 15s ease-in-out infinite alternate-reverse;
-}
-
-@keyframes blobAnim {
-  from { transform: translateY(0) scale(1); }
-  to { transform: translateY(30px) scale(1.1); }
-}
-
-/* Container */
-.container {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 20px;
-  position: relative;
-  z-index: 2;
-}
-
-.text-center { text-align: center; }
-.hidden { display: none !important; }
-
-/* ==========================================================================
-   2. FLOATING BACKGROUND PARTICLES (BUTTERFLIES & HEARTS)
-   ========================================================================== */
+/* الفراشات والقلوب الطافية */
 .floats-container {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 0;
   overflow: hidden;
 }
 
@@ -121,11 +34,11 @@ body::after {
   position: absolute;
   bottom: -70px;
   opacity: 0;
-  animation: floatUp 14s infinite ease-in-out;
+  animation: up 14s infinite ease-in-out;
   filter: drop-shadow(0 0 8px rgba(155,110,200,.45));
 }
 
-@keyframes floatUp {
+@keyframes up {
   0% { transform: translateY(0) rotate(-8deg) scale(.5); opacity: 0; }
   10% { opacity: .95; }
   30% { transform: translateY(-30vh) translateX(18px) rotate(10deg) scale(.85); }
@@ -135,19 +48,19 @@ body::after {
   100% { transform: translateY(-110vh) translateX(-10px) rotate(-5deg) scale(1.15); opacity: 0; }
 }
 
-/* ==========================================================================
-   3. PASSWORD GATE OVERLAY (HEART CARD)
-   ========================================================================== */
-.password-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(237, 228, 250, 0.85);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9000;
-  padding: 20px;
+.float-item:nth-child(1){left:6%;font-size:34px;animation-delay:0s;animation-duration:14s}
+.float-item:nth-child(2){left:20%;font-size:26px;animation-delay:2.5s;animation-duration:17s}
+.float-item:nth-child(3){left:38%;font-size:38px;animation-delay:5s;animation-duration:13s}
+.float-item:nth-child(4){left:58%;font-size:28px;animation-delay:7s;animation-duration:16s}
+.float-item:nth-child(5){left:74%;font-size:36px;animation-delay:1s;animation-duration:15s}
+
+/* تصميم تسجيل الدخول (القلب الكبير) */
+.login-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
 }
 
 .heart-container {
@@ -167,9 +80,8 @@ body::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: heartBeat 2.5s infinite;
-  filter: var(--shadow-purple) var(--shadow-glow);
-  will-change: transform;
+  animation: beat 2.5s infinite;
+  filter: drop-shadow(0 10px 40px rgba(140,95,190,.25)) drop-shadow(0 0 30px rgba(190,150,230,.3));
 }
 
 .big-heart::before {
@@ -180,327 +92,111 @@ body::after {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 90'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23CBAEEB'/%3E%3Cstop offset='45%25' stop-color='%23B692E0'/%3E%3Cstop offset='100%25' stop-color='%239E77CE'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M50 85 C50 85 5 55 5 28 C5 14 16 5 28 5 C36 5 43 9 50 17 C57 9 64 5 72 5 C84 5 95 14 95 28 C95 55 50 85 50 85Z' fill='url(%23g)'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 
-@keyframes heartBeat {
-  0%, 100% { transform: scale(1); }
-  10%, 30% { transform: scale(1.04); }
-  20%, 40% { transform: scale(1); }
+@keyframes beat {
+  0%,100%{transform:scale(1)}
+  10%,30%{transform:scale(1.04)}
+  20%,40%{transform:scale(1)}
 }
 
-.password-card {
+.login-content {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%,-50%);
   width: 65%;
   z-index: 3;
   padding: 30px 25px;
-  text-align: center;
 }
 
-.photo-circle-wrap {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 14px;
-}
-
+.photo-circle-wrap { display:flex; justify-content:center; margin-bottom:10px; }
 .photo-circle {
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
-  border: 4px solid rgba(140, 95, 190, 0.5);
+  border: 4px solid rgba(140,95,190,.5);
   overflow: hidden;
-  animation: borderGlow 3s ease-in-out infinite alternate;
 }
+.photo-circle img { width:100%; height:100%; object-fit:cover; }
 
-@keyframes borderGlow {
-  0% { box-shadow: 0 0 0 3px rgba(200,165,235,.35), 0 8px 25px rgba(140,95,190,.12); }
-  100% { box-shadow: 0 0 0 6px rgba(200,165,235,.8), 0 8px 30px rgba(140,95,190,.28), 0 0 32px rgba(200,165,235,.75); }
-}
+.login-title { font-size: 1.8em; color: #4B2C6E; font-weight: 900; }
+.login-subtitle { font-size: .9em; color: #7B54A8; margin-bottom: 10px; font-weight: 600; }
 
-.photo-circle img {
+.glass-login-card {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 18px 22px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.password-card h2 {
-  font-size: 1.9em;
-  color: var(--dark-purple);
-  font-weight: 900;
-  margin-bottom: 4px;
-  text-shadow: 0 2px 6px rgba(255, 255, 255, 0.9);
-}
-
-.password-card p {
-  font-size: 0.95em;
-  color: var(--text-muted);
-  margin-bottom: 20px;
-  font-weight: 700;
-}
-
-.input-group {
-  margin-bottom: 16px;
+  max-width: 300px;
+  margin: 10px auto 0 auto;
+  box-shadow: 0 10px 30px rgba(140, 95, 190, 0.2);
 }
 
 .input-group label {
-  display: block;
-  margin-bottom: 7px;
-  color: var(--dark-purple);
-  font-size: 0.92em;
-  font-weight: 700;
-  text-align: right;
+  display: block; font-size: 0.85em; color: #7B54A8; margin-bottom: 6px; font-weight: 700; text-align: center;
 }
-
 .input-group input {
-  width: 85%;
-  padding: 10px 14px;
-  border: 2px solid rgba(140, 95, 190, 0.35);
-  border-radius: var(--radius-sm);
-  font-size: 1.4em;
-  font-weight: 900;
-  background: rgba(255, 252, 255, 0.7);
-  color: var(--dark-purple);
-  text-align: center;
-  backdrop-filter: blur(10px);
-  transition: var(--transition-normal);
+  width: 100%; padding: 10px 12px; border: 1.5px solid rgba(158, 119, 206, 0.3);
+  border-radius: 12px; background: rgba(255, 255, 255, 0.9); color: #4B2C6E;
+  font-size: 1em; text-align: center; outline: none;
 }
-
-.input-group input:focus {
-  border-color: var(--primary-color);
-  background: rgba(255, 252, 255, 0.95);
-  box-shadow: 0 4px 18px rgba(140, 95, 190, 0.25);
-  transform: translateY(-2px);
-}
-
-.btn-unlock {
-  width: 100%;
-  padding: 14px;
-  background: linear-gradient(135deg, #B692E0, #9E77CE, #8A63BC);
-  border: 2.5px solid rgba(255, 255, 255, 0.55);
-  border-radius: var(--radius-sm);
-  color: #FFF9FF;
-  font-size: 1.15em;
-  font-weight: 900;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(140, 95, 190, 0.3);
-  transition: var(--transition-normal);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-unlock:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 38px rgba(140, 95, 190, 0.45);
-}
-
-/* ==========================================================================
-   4. MAIN HEADER & HERO SECTION
-   ========================================================================== */
-.main-header {
-  background: rgba(255, 252, 255, 0.7);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 75px;
-}
-
-.brand-logo {
-  font-size: 22px;
-  font-weight: 900;
-  color: var(--dark-purple);
-}
-
-.hero-section {
-  padding: 60px 0;
-}
-
-.hero-card {
-  background: var(--card-bg);
-  border: 2px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 40px;
-  box-shadow: var(--shadow-purple);
-  backdrop-filter: blur(10px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.hero-img-wrapper {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 4px solid #ffffff;
-  box-shadow: 0 8px 25px rgba(140, 95, 190, 0.2);
-}
-
-.hero-img-wrapper img {
-  width: 100%;
-  height: 380px;
-  object-fit: cover;
-}
-
-.hero-text-content h1 {
-  font-size: 36px;
-  font-weight: 900;
-  color: var(--dark-purple);
-  margin-bottom: 15px;
-}
-
-.hero-text-content p {
-  font-size: 17px;
-  color: var(--text-muted);
-  line-height: 1.8;
-  white-space: pre-line;
-}
-
-/* ==========================================================================
-   5. COUNTDOWN SECTION
-   ========================================================================== */
-.countdown-section {
-  padding: 50px 0;
-}
-
-.countdown-box-wrapper {
+.login-btn {
+  width: 100%; margin-top: 10px; padding: 10px;
   background: linear-gradient(135deg, #B692E0, #9E77CE);
-  border-radius: var(--radius-lg);
-  padding: 40px;
-  color: #ffffff;
-  text-align: center;
-  box-shadow: var(--shadow-purple);
+  border: none; border-radius: 12px; color: #ffffff; font-size: 1.05em; font-weight: 700; cursor: pointer;
 }
 
-.countdown-timer {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  margin-top: 25px;
+/* 2. كروت الخيارات (بتحبيني؟) */
+#mainContent { width: 100%; max-width: 900px; margin: 0 auto; z-index: 2; position: relative; }
+
+#loveQuestionStep {
+  display: flex; justify-content: center; align-items: center; min-height: 60vh; width: 100%;
 }
+.love-choices { position: relative; width: 100%; max-width: 500px; height: 300px; display: flex; justify-content: center; align-items: center; }
 
-.time-box {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(10px);
-  padding: 18px;
-  border-radius: var(--radius-sm);
-  min-width: 90px;
-  border: 1.5px solid rgba(255, 255, 255, 0.4);
+.choice-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.9); border-radius: 24px;
+  padding: 30px 25px; text-align: center; cursor: pointer;
+  box-shadow: 0 12px 30px rgba(158, 119, 206, 0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: absolute;
 }
+.yes-card { width: 200px; top: 10%; z-index: 2; }
+.no-card { width: 180px; bottom: 5%; left: 15%; z-index: 1; }
+.choice-icon { font-size: 2.5em; display: block; margin-bottom: 8px; }
+.choice-text { font-size: 1.2em; font-weight: 800; color: #4B2C6E; margin: 0; }
 
-.time-box span {
-  display: block;
-  font-size: 32px;
-  font-weight: 900;
+/* 3. كارت العداد والمشغل */
+.top-note { color: #7B54A8; font-weight: 700; font-size: 1.1em; text-align: center; margin-bottom: 25px; }
+.section-title { color: #4B2C6E; font-size: 2.2em; font-weight: 900; text-align: center; margin-bottom: 20px; }
+
+.countdown-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px); border-radius: 28px; padding: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.9); box-shadow: 0 15px 35px rgba(158, 119, 206, 0.18);
+  width: 100%; max-width: 600px; margin: 0 auto 25px auto; text-align: center;
 }
+.countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 20px; }
+.timer-box { background: linear-gradient(135deg, #B692E0, #9E77CE); color: #ffffff; padding: 16px 10px; border-radius: 20px; }
+.timer-number { font-size: 2em; font-weight: 900; display: block; }
+.timer-label { font-size: 0.85em; opacity: 0.9; font-weight: 600; }
+.countdown-subtext { color: #4B2C6E; font-size: 1.05em; font-weight: 700; margin: 0; }
 
-.time-box label {
-  font-size: 13px;
-  font-weight: 700;
+.music-player-card {
+  background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px);
+  border-radius: 22px; padding: 15px 25px; display: flex; align-items: center;
+  justify-content: space-between; width: 100%; max-width: 500px; margin: 0 auto;
+  border: 1.5px solid rgba(255, 255, 255, 0.9); box-shadow: 0 10px 25px rgba(140, 95, 190, 0.15);
 }
+.song-title { display: block; font-weight: 800; color: #4B2C6E; font-size: 0.95em; }
+.song-count { font-size: 0.8em; color: #7B54A8; }
+.control-btn { background: #B692E0; border: none; color: white; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; }
 
-/* ==========================================================================
-   6. CONTENT CARDS (GRID & MEDIA)
-   ========================================================================== */
-section {
-  padding: 50px 0;
-}
-
-.section-title {
-  font-size: 28px;
-  font-weight: 900;
-  color: var(--dark-purple);
-  text-align: center;
-  margin-bottom: 35px;
-}
-
-.sentences-grid, .photos-grid, .videos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-}
-
-.custom-card {
-  background: var(--card-bg);
-  border: 1.5px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 25px;
-  box-shadow: 0 8px 20px rgba(140, 95, 190, 0.08);
-  backdrop-filter: blur(8px);
-  transition: var(--transition-normal);
-}
-
-.custom-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-purple);
-}
-
-/* ==========================================================================
-   7. RESPONSIVE MEDIA QUERIES
-   ========================================================================== */
-@media (max-width: 768px) {
-  .heart-container {
-    width: 400px;
-    height: 400px;
-  }
-
-  .big-heart::before {
-    width: 360px;
-    height: 360px;
-  }
-
-  .password-card {
-    width: 78%;
-    padding: 20px;
-  }
-
-  .photo-circle {
-    width: 75px;
-    height: 75px;
-  }
-
-  .hero-card {
-    grid-template-columns: 1fr;
-    padding: 25px;
-  }
-
-  .countdown-timer {
-    gap: 8px;
-  }
-
-  .time-box {
-    min-width: 65px;
-    padding: 10px;
-  }
-
-  .time-box span {
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 480px) {
-  .heart-container {
-    width: 320px;
-    height: 320px;
-  }
-
-  .big-heart::before {
-    width: 300px;
-    height: 300px;
-  }
-
-  .password-card {
-    width: 85%;
-  }
-
-  .photo-circle {
-    width: 60px;
-    height: 60px;
-  }
+@media(max-width:600px){
+  .heart-container{width:360px;height:360px}
+  .big-heart::before{width:330px;height:330px}
+  .countdown-grid { grid-template-columns: repeat(2, 1fr); }
 }

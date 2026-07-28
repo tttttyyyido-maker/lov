@@ -2,131 +2,121 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ذكرياتنا الجميلة ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>I love you 💖</title>
   
-  <!-- Google Fonts & FontAwesome Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
   
-  <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Floating Ambient Particles Container -->
-  <div class="floats-container" id="floatsContainer"></div>
+  <!-- الفراشات والقلوب الطافية -->
+  <div class="floats-container" id="floatsContainer">
+    <div class="float-item">🦋</div>
+    <div class="float-item">💜</div>
+    <div class="float-item">🦋</div>
+    <div class="float-item">🦋</div>
+    <div class="float-item">💜</div>
+  </div>
 
-  <!-- Password Overlay Gate (Heart Card) -->
-  <div id="passwordOverlay" class="password-overlay">
+  <!-- 1. بوابه كلمة السر (تصميم القلب) -->
+  <div id="passwordOverlay" class="login-container">
     <div class="heart-container">
       <div class="big-heart"></div>
-      <div class="password-card custom-card">
+      <div class="login-content">
+        
         <div class="photo-circle-wrap">
           <div class="photo-circle">
-            <img id="gateAvatar" src="https://via.placeholder.com/150" alt="Avatar">
+            <img id="gateAvatar" src="https://res.cloudinary.com/dvc3zpg1i/image/upload/f_auto,q_auto/v1784320611/clients/hjbzd9vmpjbognmp3elg.jpg" alt="photo">
           </div>
         </div>
-        <h2 id="gateTitle">عالمنا الخاص ✨</h2>
-        <p id="gateSubtitle">أدخلي كلمة السر للدخول ❤️</p>
-        
-        <form id="passwordForm" onsubmit="return false;">
-          <div class="input-group">
-            <input type="password" id="passInput" placeholder="••••" maxlength="10" autocomplete="off" required>
-          </div>
-          <button type="submit" id="unlockBtn" class="btn-unlock">
-            <span>فتح الصفحة</span> <i class="fa-solid fa-key"></i>
-          </button>
-        </form>
+
+        <h1 class="login-title" id="gateTitle">جاهزه؟؟</h1>
+        <p class="login-subtitle" id="gateSubtitle">my everything</p>
+
+        <div class="glass-login-card">
+          <form id="passwordForm" onsubmit="return false;">
+            <div class="input-group">
+              <label for="passInput">Password</label>
+              <input type="text" id="passInput" placeholder="password" required>
+            </div>
+            <button type="submit" id="unlockBtn" class="login-btn"> Unlock </button>
+          </form>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- Main Website Content -->
+  <!-- المحتوى الرئيسي بعد فك كلمة السر -->
   <div id="mainContent" class="hidden">
     
-    <!-- Navbar -->
-    <header class="main-header">
-      <div class="container navbar">
-        <div class="brand-logo">
-          <i class="fa-solid fa-heart" style="color: var(--primary-color);"></i> <span id="siteLogoText">ذكرياتنا</span>
+    <!-- 2. خطوة خيارات الحب -->
+    <div id="loveQuestionStep" class="step-container">
+      <div class="love-choices">
+        <div class="choice-card yes-card" onclick="showMemoriesSection()">
+          <span class="choice-icon">💜</span>
+          <p class="choice-text">بتحبيني؟</p>
         </div>
-        <div class="nav-actions">
-          <a href="admin/index.html" class="btn-primary" style="padding: 8px 16px; font-size: 13px;">
-            <i class="fa-solid fa-user-gear"></i> لوحة التحكم
-          </a>
+        
+        <div class="choice-card no-card" id="noBtn">
+          <span class="choice-icon">😒</span>
+          <p class="choice-text">مش بتحبيني؟</p>
         </div>
       </div>
-    </header>
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container">
-        <div class="hero-card">
-          <div class="hero-img-wrapper">
-            <img id="heroImage" src="https://via.placeholder.com/600x400" alt="Hero Image">
+    <!-- 3. خطوة العداد والمشغل -->
+    <div id="memoriesStep" class="step-container hidden">
+      <p class="top-note">الهديه دي ليكي وبس ونفضل نضيف كل الي بينا هنا</p>
+      
+      <h2 class="section-title">بدايتنا❤️</h2>
+      
+      <div class="countdown-card">
+        <div class="countdown-grid">
+          <div class="timer-box">
+            <span class="timer-number" id="days">372</span>
+            <span class="timer-label">يوم</span>
           </div>
-          <div class="hero-text-content">
-            <h1 id="heroTitle">أهلاً بكِ يا أميرتي ❤️</h1>
-            <p id="heroDescription">هذا المكان تم إنشاؤه خصيصاً ليجمع كل لحظاتنا الجميلة وذكرياتنا المميزة معاً.</p>
+          <div class="timer-box">
+            <span class="timer-number" id="hours">3</span>
+            <span class="timer-label">ساعة</span>
+          </div>
+          <div class="timer-box">
+            <span class="timer-number" id="minutes">28</span>
+            <span class="timer-label">دقيقة</span>
+          </div>
+          <div class="timer-box">
+            <span class="timer-number" id="seconds">32</span>
+            <span class="timer-label">ثانية</span>
           </div>
         </div>
+        <p class="countdown-subtext">كل ثانية بتعدي وانا ديما بفكر فيكي</p>
       </div>
-    </section>
 
-    <!-- Countdown Section -->
-    <section class="countdown-section">
-      <div class="container">
-        <div class="countdown-box-wrapper">
-          <h2 id="countdownTitle">العد التنازلي لمناسبتنا القادمة ✨</h2>
-          <div class="countdown-timer" id="countdownTimer">
-            <div class="time-box"><span id="days">00</span><label>يوم</label></div>
-            <div class="time-box"><span id="hours">00</span><label>ساعة</label></div>
-            <div class="time-box"><span id="minutes">00</span><label>دقيقة</label></div>
-            <div class="time-box"><span id="seconds">00</span><label>ثانية</label></div>
-          </div>
+      <!-- مشغل الأغاني -->
+      <div class="music-player-card">
+        <div class="player-info">
+          <span class="song-title">ومفيش الا عينيك 😍</span>
+          <span class="song-count">1/1</span>
+        </div>
+        <div class="player-controls">
+          <button class="control-btn">⏮</button>
+          <button class="control-btn play-btn">⏸</button>
+          <button class="control-btn">⏭</button>
         </div>
       </div>
-    </section>
-
-    <!-- Romantic Sentences Section -->
-    <section class="sentences-section">
-      <div class="container">
-        <h2 class="section-title">رسائل من القلب 💌</h2>
-        <div class="sentences-grid" id="sentencesGrid">
-          <!-- Dynamically populated from JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Photo Gallery Section -->
-    <section class="photos-section">
-      <div class="container">
-        <h2 class="section-title">معرض الصور 📸</h2>
-        <div class="photos-grid" id="photosGrid">
-          <!-- Dynamically populated from JS -->
-        </div>
-      </div>
-    </section>
-
-    <!-- Videos Section -->
-    <section class="videos-section">
-      <div class="container">
-        <h2 class="section-title">فيديوهاتنا المميزة 🎥</h2>
-        <div class="videos-grid" id="videosGrid">
-          <!-- Dynamically populated from JS -->
-        </div>
-      </div>
-    </section>
+    </div>
 
   </div>
 
-  <!-- Firebase Scripts & Core JS -->
   <script type="module" src="js/firebase.js"></script>
   <script type="module" src="js/helpers.js"></script>
   <script type="module" src="js/ui.js"></script>
   <script type="module" src="js/app.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
