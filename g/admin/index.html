@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="siteTitle">قصتنا 💕</title>
+  <title>Our Love Story 💕</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -16,53 +16,58 @@
       color: #7A2846;
       text-align: center;
       padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .container {
-      max-width: 600px;
-      margin: 40px auto;
+    .card {
       background: white;
+      width: 100%;
+      max-width: 500px;
       padding: 30px;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border-radius: 28px;
+      box-shadow: 0 15px 35px rgba(210, 100, 130, 0.2);
     }
-    h1 { color: #C03960; margin-bottom: 10px; }
-    p { margin-bottom: 15px; font-weight: 600; }
+    h1 { color: #C03960; font-size: 2em; margin-bottom: 5px; font-weight: 900; }
+    .sub { color: #E2507B; font-weight: 700; margin-bottom: 20px; }
     .hero-img {
-      width: 150px;
-      height: 150px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid #FF85A2;
-      margin: 15px 0;
+      margin: 10px auto 20px auto;
+      display: block;
     }
-    .message-box {
+    .msg-box {
       background: #FFF0F3;
       padding: 20px;
-      border-radius: 16px;
-      border: 1px dashed #FF85A2;
-      margin-top: 20px;
+      border-radius: 18px;
+      border: 2px dashed #FFB0C2;
+      margin-bottom: 20px;
     }
+    .msg-title { color: #C03960; font-weight: 800; font-size: 1.2em; margin-bottom: 8px; }
+    .msg-body { font-size: 1em; line-height: 1.6; color: #61132C; font-weight: 600; }
+    .counter-sub { font-size: 0.9em; font-weight: 700; color: #8C2443; }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1 id="displayPageTitle">جاري التحميل...</h1>
-    <p id="displaySubTitle">💕 Our Love Story</p>
+  <div class="card">
+    <h1 id="pageTitleDisplay">...</h1>
+    <div class="sub" id="subTitleDisplay">...</div>
     
-    <img id="displayHeroImage" src="" class="hero-img" alt="صورة" style="display:none;">
+    <img id="heroImgDisplay" class="hero-img" src="" alt="love" style="display: none;">
 
-    <div class="message-box">
-      <h2 id="displayMsgTitle" style="color: #C03960; margin-bottom: 10px;">...</h2>
-      <p id="displayMsgBody">...</p>
+    <div class="msg-box">
+      <div class="msg-title" id="msgTitleDisplay">...</div>
+      <div class="msg-body" id="msgBodyDisplay">...</div>
     </div>
 
-    <div style="margin-top:25px;">
-      <p id="displayCounterSub">...</p>
-    </div>
+    <div class="counter-sub" id="counterSubDisplay">...</div>
   </div>
 
-  <!-- ربط استقبال التحديثات اللحظية من Firebase -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getFirestore, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
@@ -80,24 +85,24 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    // الاستماع الحقيقي المباشر (Realtime Listener)
-    onSnapshot(doc(db, "siteData", "mainConfig"), (docSnap) => {
-      if (docSnap.exists()) {
-        const data = docSnap.data();
+    // الاستماع المباشر للتغييرات
+    onSnapshot(doc(db, "siteData", "mainConfig"), (snapshot) => {
+      if (snapshot.exists()) {
+        const data = snapshot.data();
 
         if (data.pageTitle) {
           document.title = data.pageTitle;
-          document.getElementById('displayPageTitle').textContent = data.pageTitle;
+          document.getElementById('pageTitleDisplay').textContent = data.pageTitle;
         }
-        if (data.subTitle) document.getElementById('displaySubTitle').textContent = data.subTitle;
-        if (data.msgTitle) document.getElementById('displayMsgTitle').textContent = data.msgTitle;
-        if (data.msgBody) document.getElementById('displayMsgBody').textContent = data.msgBody;
-        if (data.counterSubText) document.getElementById('displayCounterSub').textContent = data.counterSubText;
+        if (data.subTitle) document.getElementById('subTitleDisplay').textContent = data.subTitle;
+        if (data.msgTitle) document.getElementById('msgTitleDisplay').textContent = data.msgTitle;
+        if (data.msgBody) document.getElementById('msgBodyDisplay').textContent = data.msgBody;
+        if (data.counterSubText) document.getElementById('counterSubDisplay').textContent = data.counterSubText;
         
         if (data.heroImage) {
-          const imgEl = document.getElementById('displayHeroImage');
-          imgEl.src = data.heroImage;
-          imgEl.style.display = 'inline-block';
+          const img = document.getElementById('heroImgDisplay');
+          img.src = data.heroImage;
+          img.style.display = 'block';
         }
       }
     });
