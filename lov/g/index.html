@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>I love you 💖</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- الفراشات والقلوب الطافية -->
+  <div class="floats-container" id="floatsContainer">
+    <div class="float-item">🦋</div>
+    <div class="float-item">💜</div>
+    <div class="float-item">🦋</div>
+    <div class="float-item">🦋</div>
+    <div class="float-item">💜</div>
+  </div>
+
+  <!-- 1. بوابة كلمة السر (تصميم القلب) -->
+  <div id="passwordOverlay" class="login-container">
+    <div class="heart-container">
+      <div class="big-heart"></div>
+      <div class="login-content">
+        
+        <div class="photo-circle-wrap">
+          <div class="photo-circle">
+            <img id="gateAvatar" src="https://res.cloudinary.com/dvc3zpg1i/image/upload/f_auto,q_auto/v1784320611/clients/hjbzd9vmpjbognmp3elg.jpg" alt="photo">
+          </div>
+        </div>
+
+        <h1 class="login-title" id="gateTitle">جاهزه؟؟</h1>
+        <p class="login-subtitle" id="gateSubtitle">my everything</p>
+
+        <div class="glass-login-card">
+          <form id="passwordForm" onsubmit="return false;">
+            <div class="input-group">
+              <label for="passInput">Password</label>
+              <input type="text" id="passInput" placeholder="password" required>
+            </div>
+            <button type="button" id="unlockBtn" class="login-btn"> Unlock </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- المحتوى الرئيسي بعد فك كلمة السر -->
+  <div id="mainContent" class="hidden">
+    
+    <!-- 2. خطوة خيارات الحب -->
+    <div id="loveQuestionStep" class="step-container">
+      <div class="love-choices">
+        <div class="choice-card yes-card" onclick="showMemoriesSection()">
+          <span class="choice-icon">💜</span>
+          <p class="choice-text">بتحبيني؟</p>
+        </div>
+        
+        <div class="choice-card no-card" id="noBtn">
+          <span class="choice-icon">😒</span>
+          <p class="choice-text">مش بتحبيني؟</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. خطوة العداد والملاحظات والذكريات -->
+    <div id="memoriesStep" class="step-container hidden">
+      <p class="top-note">الهديه دي ليكي وبس ونفضل نضيف كل الي بينا هنا</p>
+      
+      <h2 class="section-title">بدايتنا❤️</h2>
+      
+      <!-- العداد التنازلي -->
+      <div class="countdown-card">
+        <div class="countdown-grid">
+          <div class="timer-box">
+            <span class="timer-number" id="days">كثيييير</span>
+            <span class="timer-label">كام مره اتخانقنا</span>
+          </div>
+          <div class="timer-box">
+            <span class="timer-number" id="hours">129</span>
+            <span class="timer-label">يوم</span>
+          </div>
+          <div class="timer-box">
+            <span class="timer-number" id="minutes">18</span>
+            <span class="timer-label">اسبوع</span>
+          </div>
+          <div class="timer-box">
+            <span class="timer-number" id="seconds">4</span>
+            <span class="timer-label">شهر</span>
+          </div>
+        </div>
+        <p class="countdown-subtext">كل ثانية بتعدي وانا ديما بفكر فيكي</p>
+      </div>
+
+      <!-- خط الذكريات (Timeline) -->
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="date-badge">📅 2026-4-14</span>
+            <p class="timeline-text">اول يوم عرفنا فيه بعض</p>
+          </div>
+          <div class="timeline-icon">🦋</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="date-badge">📅 2026-5-5</span>
+            <p class="timeline-text">اول مره تقولي بحبك</p>
+          </div>
+          <div class="timeline-icon">🦋</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-card">
+            <span class="date-badge">📅 2026-10-23</span>
+            <p class="timeline-text">يوم مميز لينا فاكراه؟</p>
+          </div>
+          <div class="timeline-icon">🦋</div>
+        </div>
+      </div>
+
+      <!-- معرض الصور البولاروايد -->
+      <div class="polaroid-gallery">
+        <div class="polaroid-frame">
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?q=80&w=800" alt="Memory Photo 1">
+        </div>
+        <div class="polaroid-frame">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=800" alt="Memory Photo 2">
+        </div>
+      </div>
+
+      <!-- كارت الرسالة السحابية -->
+      <div class="message-cloud-card">
+        <div class="cloud-content">
+          <p>عملت الهديه دي علشان نجمع فيها كل لحظاتنا سوا وهنفضل نضيف كل ذكرياتنا اللي بينا هنا.</p>
+          <p>كل سنة وانتي طيبة يا ملك حبيبتي 
+كل سنة وانتي معايا وأقرب واحدة لقلبي، وبجد أنا مبسوط إنك في حياتي ومش عايز اليوم ده يعدي من غير ما أقولك قد إيه انتي غالية عندي.
+ربنا يخليكي ليا ونكمل سوا، ونفضل جنب بعض مهما حصل بينا، ونعيش مع بعض أيام أحلى بكتير من اللي فاتت 
+يارب السنة دي تكون بداية لكل حاجة حلوة في حياتك، وأفضل دايمًا أشوف ضحكتك ومبسوطه قدامي.
+بحبك يا ملك، وكل سنة وانتي حبيبتي وأجمل حاجة في أيامي ❤️🫶🏻</p>
+        </div>
+      </div>
+
+      <!-- شريط قياس الحب (Love Meter) -->
+      <div class="love-meter-section">
+        <h3 class="meter-title">عايزه تعرفي بحبك قد ايه؟</h3>
+        
+        <div class="meter-card">
+          <div class="meter-heart">💜</div>
+          
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="loveProgress" style="width: 0%;"></div>
+          </div>
+          
+          <p class="meter-status" id="loveStatusText">بحبك شويه 🤔</p>
+        </div>
+      </div>
+
+      <!-- مشغل الأغاني -->
+      <div class="music-player-card">
+        <div class="player-info">
+          <span class="song-title">ومفيش الا عينيك 😍</span>
+          <span class="song-count">1/1</span>
+        </div>
+        <div class="player-controls">
+          <button class="control-btn">⏮</button>
+          <button class="control-btn play-btn" id="playPauseBtn">⏸</button>
+          <button class="control-btn">⏭</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- السكريبت الرئيسي للتفاعل -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const unlockBtn = document.getElementById('unlockBtn');
+      const passInput = document.getElementById('passInput');
+      const passwordOverlay = document.getElementById('passwordOverlay');
+      const mainContent = document.getElementById('mainContent');
+
+      if (unlockBtn) {
+        unlockBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          if (passInput.value.trim() === 'love') {
+            passwordOverlay.classList.add('hidden');
+            mainContent.classList.remove('hidden');
+          } else {
+            alert('كلمة السر غير صحيحة!');
+          }
+        });
+      }
+
+      // حركة زر "مش بتحبيني؟"
+      const noBtn = document.getElementById('noBtn');
+      if (noBtn) {
+        noBtn.addEventListener('mouseover', () => {
+          const x = Math.random() * (window.innerWidth - 200);
+          const y = Math.random() * (window.innerHeight - 100);
+          noBtn.style.position = 'fixed';
+          noBtn.style.left = `${x}px`;
+          noBtn.style.top = `${y}px`;
+        });
+      }
+    });
+
+    // إظهار قسم الذكريات وتشغيل أنيميشن قياس الحب
+    function showMemoriesSection() {
+      const questionStep = document.getElementById('loveQuestionStep');
+      const memoriesStep = document.getElementById('memoriesStep');
+      if (questionStep && memoriesStep) {
+        questionStep.classList.add('hidden');
+        memoriesStep.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        triggerLoveMeter();
+      }
+    }
+
+    // أنيميشن الـ Love Meter
+    function triggerLoveMeter() {
+      const fill = document.getElementById('loveProgress');
+      const text = document.getElementById('loveStatusText');
+      
+      if (fill && text) {
+        let width = 0;
+        const interval = setInterval(() => {
+          if (width >= 100) {
+            clearInterval(interval);
+            text.innerText = "بحبك للمالانهاية! 💖✨";
+          } else {
+            width += 2;
+            fill.style.width = width + '%';
+            if (width < 35) text.innerText = "بحبك شويه 🤔";
+            else if (width < 75) text.innerText = "بحبك كتير قوي 😍";
+            else text.innerText = "بحبك اعلى حاجة في الدنيا! ❤️";
+          }
+        }, 30);
+      }
+    }
+  </script>
+
+</body>
+</html>
